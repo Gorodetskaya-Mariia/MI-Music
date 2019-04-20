@@ -1,0 +1,170 @@
+@import "vars";
+@import "mixins";
+@import "fonts";
+
+header {
+  padding-top: 45px;
+  background-color: #0134a0;
+  font-weight: 700;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.logo__wrapper {
+  @include clear;
+  display: flex;
+  align-items: center;
+
+  span {
+    padding: 10px;
+    margin-right: 10px;
+    background-color: #032c9e;
+  }
+}
+
+.menu {
+  display: flex;
+}
+
+.menu__list {
+  @include clear;
+  display: flex;
+  align-items: center;
+
+  &--nav {
+    margin-right: 20px;
+  }
+}
+
+.menu__item {
+  position: relative;
+
+  &--nav.current::after {
+    @include pseudo-el;
+    top: calc(50% - 1px);
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+  }
+
+  &--social {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    line-height: 48px;
+    text-align: center;
+    border: 1px solid white;
+    background-color: transparent;
+    transition: all 0.2s;
+    z-index: 1;
+
+    svg {
+      fill: #ffffff;
+    }
+
+    &::after {
+      @include pseudo-el;
+      background-color: #ffffff;
+      top: 0;
+      right: 0;
+      bottom: 100%;
+      z-index: -1;
+      -webkit-transition: bottom 0.2s ease-in;
+    }
+
+    &:hover::after {
+      bottom: 0;
+    }
+
+    &:hover svg {
+      fill: #0134a0;
+    }
+  }
+}
+
+.menu__link {
+  position: relative;
+  text-decoration: none;
+  letter-spacing: 2.4px;
+
+  &--nav {
+    padding: 0.9375rem 1.25rem;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    transition: padding 0.2s, border-color 0.2s;
+
+    &::after {
+      @include pseudo-el;
+      bottom: 0;
+      right: 0;
+      padding: 0.625rem;
+      height: 0;
+      border-right: 1px solid transparent;
+      transition: height 0.2s, border-color 0s;
+    }
+
+    &::before {
+      @include pseudo-el;
+      bottom: 0;
+      right: 0;
+      height: 0;
+      border-left: 1px solid transparent;
+      transition: height 0.2s, border-color 0s;
+    }
+
+    &:hover::before,
+    &:hover::after {
+      height: 100%;
+      transition-delay: 0.1s;
+      border-color: #ffffff;
+    }
+
+    &:hover::after {
+      height: 50%;
+    }
+
+    &:hover {
+      padding: 0.625rem 1.25rem;
+      border-color: #ffffff;
+      outline: none;
+    }
+  }
+
+  &--facebook {
+    svg {
+      margin-left: -6px;
+      margin-top: -2px;
+    }
+  }
+
+  &--twitter {
+    svg {
+      margin-bottom: 2px;
+    }
+  }
+
+  &--instagram {
+    svg {
+      margin-top: 10px;
+    }
+  }
+}
+
+.menu__item--nav.current .menu__link--nav {
+  border: 0;
+
+  &:hover::before,
+  &:hover::after {
+    height: 0;
+    border: none;
+  }
+}
+
+.menu__button {
+  display: none;
+}

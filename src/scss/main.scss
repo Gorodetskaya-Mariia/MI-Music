@@ -24,5 +24,10 @@ body * {
   width: 1px;
 }
 
+.wrapper {
+  width: 1175px;
+  margin: 0 auto;
+}
+@import "blocks/header";
 // ======media queries============
 @import "media";

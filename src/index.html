@@ -1,46 +1,112 @@
 <!DOCTYPE html>
 <html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Pantheon</title>
+    <link rel="icon" href="img/favicon-32x32.png" />
+    <link rel="stylesheet" href="libs/normalize.css" />
+    <link rel="stylesheet" href="css/main.min.css" />
+  </head>
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-	<title>Pantheon</title>
-	<link rel="icon" href="img/favicon-32x32.png">
-	<link rel="stylesheet" href="libs/normalize.css" />
-	<link rel="stylesheet" href="css/main.min.css" />
-</head>
+  <body>
+    <header>
+      <div class="wrapper">
+        <p class="logo__wrapper"><span>MI</span>Music.</p>
+        <nav class="menu">
+          <ul class="menu__list menu__list--nav">
+            <li class="menu__item menu__item--nav current">
+              <a class="menu__link menu__link--nav" href="#">Home</a>
+            </li>
+            <li class="menu__item menu__item--nav">
+              <a class="menu__link menu__link--nav" href="#">Live</a>
+            </li>
+            <li class="menu__item menu__item--nav">
+              <a class="menu__link menu__link--nav" href="#">Albums</a>
+            </li>
+            <li class="menu__item menu__item--nav">
+              <a class="menu__link menu__link--nav" href="#">News</a>
+            </li>
+            <li class="menu__item menu__item--nav">
+              <a class="menu__link menu__link--nav" href="#">About</a>
+            </li>
+          </ul>
+          <ul class="menu__list menu__list--social">
+            <li class="menu__item menu__item--social">
+              <a class="menu__link menu__link--facebook" href="#">
+                <svg width="40" height="40">
+                  <use
+                    xlink:href="#facebook"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  ></use>
+                </svg>
+                <span class="visually-hidden">Facebook</span>
+              </a>
+            </li>
+            <li class="menu__item menu__item--social">
+              <a class="menu__link menu__link--twitter" href="#">
+                <svg width="17" height="15">
+                  <use
+                    xlink:href="#twitter"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  ></use>
+                </svg>
+                <span class="visually-hidden">Twitter</span>
+              </a>
+            </li>
+            <li class="menu__item menu__item--social">
+              <a class="menu__link menu__link--instagram" href="#">
+                <svg width="21" height="21">
+                  <use
+                    xlink:href="#instagram"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  ></use>
+                </svg>
+                <span class="visually-hidden">Instagram</span>
+              </a>
+            </li>
+            <li class="menu__item menu__item--social">
+              <a class="menu__link menu__link--youtube" href="#">
+                <svg width="20" height="16">
+                  <use
+                    xlink:href="#youtube"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  ></use>
+                </svg>
+                <span class="visually-hidden">Youtube</span>
+              </a>
+            </li>
+          </ul>
+          <button class="button menu__button"></button>
+        </nav>
+      </div>
+    </header>
+    <script src="js/scripts.min.js"></script>
+    <svg style="z-index: -1; visibility: hidden;">
+      <symbol id="facebook" viewBox="0 0 40 40">
+        <path class='animation'
+          d="M25.5 16.4h2.4V13H25c-3.1.2-4.3 2.4-3.9 6.1h-1.9v3.5h2V32H25v-9.4h2.9v-3.5h-3c0-1 0-2.4.6-2.7z"
+        />
+      </symbol>
+      <symbol id="twitter" viewBox="0 0 17 15">
+        <path class='animation'
 
-<body>
-	<header>
-		<div class="logo__wrapper">
-			<svg>
-
-			</svg>
-			<p class='logo__title'><b>Pantheon</b><br>project</p>
-		</div>
-		<nav class='menu'>
-			<ul class='menu__list'>
-				<li class='menu__item'>
-					<a href='#'>Марс.<br>Вспомнить всё</a>
-				</li>
-				<li class='menu__item'>
-					<a href='#'>От идеи до реализации<br></a>
-				</li>
-				<li class='menu__item'>
-					<a href='#'>Подводные камни<br>в масштабах космоса</a>
-				</li>
-				<li class='menu__item'>
-					<a href='#'>Организация<br>жизни в колонии</a>
-				</li>
-				<li class='menu__item'>
-					<a href='#'>Деньги приготовил.<br>Когда вылетаем?</a>
-				</li>
-			</ul>
-			<button class="button menu__button"></button>
-		</nav>
-	</header>
-	<script src="js/scripts.min.js"></script>
-</body>
-
+          d="M10.95.144c1.685-.496 2.984.27 3.577 1.179.673-.231 1.331-.481 2.011-.708a2.345 2.345 0 0 1-.857 1.768c.685.17 1.304-.491 1.304-.491-.169 1-1.006 1.788-1.563 2.024-.231 6.75-3.175 11.217-10.077 11.082h-.446c-.41 0-4.164-.46-4.898-1.887 2.271.196 3.893-.422 4.693-1.177-.96-.3-2.679-.477-2.979-2.95.349.106.564.228 1.19.119C1.705 8.247.374 7.53.448 5.33c.285.328 1.067.536 1.34.472C1.085 5.561-.182 2.442.894.85c1.818 1.854 3.735 3.606 7.152 3.773C8.254 2.33 9.183.793 10.95.144z"
+        />
+      </symbol>
+      <symbol id="instagram" viewBox="0 0 21 21">
+        <path
+           class='animation'
+          d="M18 0H3C1.35 0 0 1.35 0 3v15c0 1.65 1.35 3 3 3h15c1.65 0 3-1.35 3-3V3c0-1.65-1.35-3-3-3zm-7.5 7c1.93 0 3.5 1.57 3.5 3.5S12.43 14 10.5 14 7 12.43 7 10.5 8.57 7 10.5 7zM18 18H3V9h1.181A6.504 6.504 0 0 0 4 10.5a6.5 6.5 0 1 0 13 0 6.45 6.45 0 0 0-.181-1.5H18v9zm0-11h-4V3h4v4z"
+        />
+      </symbol>
+      <symbol id="youtube" viewBox="0 0 20 16">
+        <path
+           class='animation'
+          d="M17 0H3C1.35 0 0 1.35 0 3v10c0 1.65 1.35 3 3 3h14c1.65 0 3-1.35 3-3V3c0-1.65-1.35-3-3-3zM6.027 11.998V4.002L15.014 8l-8.987 3.998z"
+        />
+      </symbol>
+    </svg>
+  </body>
 </html>
