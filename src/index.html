@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Pantheon</title>
-    <link rel="icon" href="img/favicon-32x32.png" />
+    <title>MI Music</title>
+    <link rel="icon" href="img/favicon.png" />
     <link rel="stylesheet" href="libs/normalize.css" />
     <link rel="stylesheet" href="css/main.min.css" />
   </head>
@@ -14,6 +14,9 @@
     <header>
       <div class="wrapper">
         <p class="logo__wrapper"><span>MI</span>Music.</p>
+        <button class="button button__menu">
+            <span>Открыть меню</span>
+        </button>
         <nav class="menu">
           <ul class="menu__list menu__list--nav">
             <li class="menu__item menu__item--nav current">
@@ -78,12 +81,35 @@
               </a>
             </li>
           </ul>
-          <button class="button menu__button"></button>
-        </nav>
+         </nav>
       </div>
     </header>
+    <main>
+      <h1 class="visually-hidden">MI Music</h1>
+      <section class="introduction">
+        <div class="wrapper">
+          <div class="introduction__title">
+            <h2>New Tour</h2>
+            <span></span>
+            <span></span>
+          </div>
+          <p class="introduction__big-text">Unforgettable</p>
+          <p class="introduction__text">Live tour continuies with new international dates just added</p>
+          <div class="buttons">
+              <button class='button button__search'>Find tickets</button>
+              <button class='button button__play'>
+                <span>
+                  <img src="../img/button-circle-play.png" width="79px"
+                   height="79px">
+                </span>
+                Play All Songs
+              </button>
+          </div>
+        </div>
+      </section>
+    </main>
     <script src="js/scripts.min.js"></script>
-    <svg style="z-index: -1; visibility: hidden;">
+    <svg style="display: none;">
       <symbol id="facebook" viewBox="0 0 40 40">
         <path class='animation'
           d="M25.5 16.4h2.4V13H25c-3.1.2-4.3 2.4-3.9 6.1h-1.9v3.5h2V32H25v-9.4h2.9v-3.5h-3c0-1 0-2.4.6-2.7z"

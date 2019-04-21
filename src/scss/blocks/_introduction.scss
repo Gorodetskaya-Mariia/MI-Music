@@ -1,0 +1,56 @@
+@import "vars";
+@import "mixins";
+@import "fonts";
+
+.introduction {
+  padding-top: 39rem;
+  padding-bottom: 20rem;
+  font-family: $font-bold;
+  background-color: $header-bg;
+
+  &__title {
+    display: flex;
+    width: 43%;
+    margin-bottom: 2rem;
+    font-size: 3.6rem;
+    letter-spacing: 0.9rem;
+    text-transform: uppercase;
+    background-color: #1b2550;
+
+    h2 {
+      padding: 0.5rem;
+      padding-right: 10rem;
+    }
+
+    span:first-of-type {
+      display: block;
+      width: 1rem;
+      background-color: #fb516e;
+    }
+
+    span:nth-of-type(2) {
+      width: 2rem;
+      background-color: #6aff7f;
+    }
+  }
+
+  &__big-text {
+    @include clear;
+    font-size: 12rem;
+    letter-spacing: -0.12rem;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    @include clear;
+    margin-bottom: 2rem;
+    font-family: $font-medium;
+    font-size: 3.6rem;
+  }
+
+  .buttons {
+    display: flex;
+  }
+}
+
+

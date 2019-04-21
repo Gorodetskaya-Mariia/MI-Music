@@ -3,10 +3,11 @@
 @import "fonts";
 
 header {
-  padding-top: 45px;
-  background-color: #0134a0;
+  padding-top: 4.5rem;
+  background-color: $header-bg;
+  font-family: $font-bold;
   font-weight: 700;
-  letter-spacing: 6px;
+  letter-spacing: 0.6rem;
   text-transform: uppercase;
 
   .wrapper {
@@ -19,10 +20,11 @@ header {
   @include clear;
   display: flex;
   align-items: center;
+  font-size: 2.4rem;
 
   span {
-    padding: 10px;
-    margin-right: 10px;
+    padding: 1rem;
+    margin-right: 1rem;
     background-color: #032c9e;
   }
 }
@@ -35,9 +37,11 @@ header {
   @include clear;
   display: flex;
   align-items: center;
+  font-size: 1.6rem;
+  letter-spacing: 0.24rem;
 
   &--nav {
-    margin-right: 20px;
+    margin-right: 2rem;
   }
 }
 
@@ -63,23 +67,15 @@ header {
     transition: all 0.2s;
     z-index: 1;
 
+    &:last-of-type {
+      margin-right: 0;
+    }
+
     svg {
       fill: #ffffff;
     }
 
-    &::after {
-      @include pseudo-el;
-      background-color: #ffffff;
-      top: 0;
-      right: 0;
-      bottom: 100%;
-      z-index: -1;
-      -webkit-transition: bottom 0.2s ease-in;
-    }
-
-    &:hover::after {
-      bottom: 0;
-    }
+    @include button-hover;
 
     &:hover svg {
       fill: #0134a0;
@@ -90,31 +86,30 @@ header {
 .menu__link {
   position: relative;
   text-decoration: none;
-  letter-spacing: 2.4px;
 
   &--nav {
-    padding: 0.9375rem 1.25rem;
+    padding: 1.05rem 1.25rem;
     border-top: 1px solid transparent;
     border-bottom: 1px solid transparent;
-    transition: padding 0.2s, border-color 0.2s;
+    transition: padding 0.2s, border-color 0.3s;
 
     &::after {
       @include pseudo-el;
       bottom: 0;
       right: 0;
-      padding: 0.625rem;
       height: 0;
       border-right: 1px solid transparent;
-      transition: height 0.2s, border-color 0s;
+      transition: height 0.3s, border-color 0s;
     }
 
     &::before {
       @include pseudo-el;
+      top: 0;
       bottom: 0;
       right: 0;
       height: 0;
       border-left: 1px solid transparent;
-      transition: height 0.2s, border-color 0s;
+      transition: height 0.3s, border-color 0s;
     }
 
     &:hover::before,
@@ -124,12 +119,15 @@ header {
       border-color: #ffffff;
     }
 
+    &:hover::before {
+      bottom: 0;
+    }
+
     &:hover::after {
-      height: 50%;
+      height: 100%;
     }
 
     &:hover {
-      padding: 0.625rem 1.25rem;
       border-color: #ffffff;
       outline: none;
     }

@@ -9,3 +9,19 @@
   content: "";
   left: 0;
 }
+
+@mixin button-hover {
+  &::after {
+    @include pseudo-el;
+    background-color: #ffffff;
+    top: 0;
+    right: 0;
+    bottom: 100%;
+    z-index: -1;
+    -webkit-transition: bottom 0.2s ease-in;
+  }
+
+  &:hover::after {
+    bottom: 0;
+  }
+}

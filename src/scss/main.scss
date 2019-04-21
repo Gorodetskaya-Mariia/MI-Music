@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  font-size: 10px;
+}
+
 body * {
   color: #ffffff;
 }
@@ -25,9 +29,16 @@ body * {
 }
 
 .wrapper {
-  width: 1175px;
+  width: 1170px;
   margin: 0 auto;
 }
+
+h1, h2 {
+  @include clear;
+}
+
 @import "blocks/header";
+@import "blocks/introduction";
+@import "blocks/buttons";
 // ======media queries============
 @import "media";
