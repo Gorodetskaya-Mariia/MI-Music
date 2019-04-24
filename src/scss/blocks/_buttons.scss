@@ -54,6 +54,7 @@
   }
 
   &__menu {
+    display: none;
     position: relative;
     margin: 0;
     margin-left: auto;
@@ -94,6 +95,10 @@
         bottom: 21px;
         transform-origin: bottom left;
         transition: transform 0.3s, width 0.3s, bottom 0.3s;
+      }
+
+      &.active {
+        display: block;
       }
     }
   }

@@ -1,7 +1,7 @@
 @import "vars";
 @import "mixins";
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: $tablet) {
   body {
     width: 100%;
   }
@@ -16,16 +16,35 @@
   }
 
   header .wrapper {
+    padding-right: 0;
     flex-wrap: wrap;
     justify-content: start;
   }
 
+  .logo__wrapper {
+    margin-bottom: 0.5rem;
+  }
+
   .menu {
     margin-left: auto;
+    flex-direction: column;
+    overflow: auto;
+  }
+
+  .menu__list--social {
+    align-self: flex-end;
+    padding-right: 1.5rem;
   }
 
   .menu__list--nav {
-    display: none;
+    overflow: auto;
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   .menu__list--nav.active {
@@ -64,11 +83,11 @@
   }
 
   .menu__link--nav {
-    color: #0134a0;
+    // color: #0134a0;
   }
 
   .menu__item--nav {
-    margin-bottom: 2rem;
+    margin: 1rem 1rem 2rem 0;
   }
 
   .menu__button {
@@ -98,7 +117,8 @@
     font-size: 1.6rem;
 
     h2 {
-      padding-right: 6rem;
+      padding-right: 0;
+      margin-right: auto;
     }
   }
 
@@ -110,7 +130,7 @@
     &__search {
       width: 200px;
       height: 5rem;
-      line-height: 5rem;
+      line-height: 4rem;
       margin-bottom: 2rem;
     }
 
@@ -152,9 +172,14 @@
   }
 }
 
-@media screen and (max-width: 1279px) {
+@media screen and (max-width: $desktop) {
 }
 
+@media screen and (min-width: $desktop + 1) {
+  .button__menu {
+    display: none;
+  }
+}
 
 
 
