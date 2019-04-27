@@ -8,7 +8,6 @@
   font-family: $font-bold;
   font-size: 1.4rem;
   letter-spacing: 0.36rem;
-  line-height: 80px;
   text-transform: uppercase;
   border: 2px solid $color-accent;
   background-color: transparent;
@@ -29,77 +28,94 @@
 
   &__play {
     display: flex;
-    height: 90px;
+    height: 80px;
     margin-left: 3rem;
     border: none;
+    line-height: 80px;
 
     span {
       position: relative;
       display: block;
-      width: 90px;
-      height: 90px;
+      width: 80px;
+      height: 80px;
       margin-right: 1.5rem;
       background-color: #012572;
       border-radius: 50%;
 
       img {
-        margin-top: 0;
-        margin-bottom: 2px;
+        margin-top: 4px;
       }
-    }
-
-    &:hover {
-
     }
   }
 
   &__menu {
     display: none;
-    position: relative;
-    margin: 0;
-    margin-left: auto;
-    padding: 0;
-    width: 70px;
-    height: 70px;
+    position: fixed;
+    width: 50px;
+    height: 50px;
     font-size: 0;
-    text-indent: -9999px;
+    right: 0;
+    top: 7px;
     border: none;
-    cursor: pointer;
 
-    span {
+    &.active {
       display: block;
-      position: absolute;
-      top: 44px;
-      left: 18px;
-      width: 40px;
-      height: 4px;
-      background: $color-accent;
-      transition: transform .3s;
+    }
+  }
+}
 
-      &::before,
-      &::after {
-       @include pseudo-el;
-        display: block;
-        width: 100%;
-        height: 4px;
-        background-color: $color-accent;
-      }
+.button__menu.active {
+  cursor: pointer;
+  transition: transform 1s ease;
 
-      &::before {
-        top: -10px;
-        transform-origin: top left;
-        transition: transform 0.3s, width 0.3s, top 0.3s;
-      }
+  &.is-open {
+    transform: translateX(-5px);
+  }
+}
 
-      &::after {
-        bottom: 21px;
-        transform-origin: bottom left;
-        transition: transform 0.3s, width 0.3s, bottom 0.3s;
-      }
 
-      &.active {
-        display: block;
-      }
+.hamburger {
+  position: absolute;
+  right: 0;
+
+  .line {
+    transition: stroke-dasharray 1s cubic-bezier(0.77, 0, 0.175, 1);
+		stroke-width: 4px;
+		stroke-linecap: butt;
+		stroke-linejoin: round;
+		fill: none;
+		fill-rule: evenodd;
+		vector-effect: non-scaling-stroke;
+    stroke: $color-accent;
+
+    &--first {
+      stroke-dasharray: 0px 0px 30px 60px;
+    }
+
+    &--second {
+      stroke-dasharray: 0px 0px 30px 60px;
+    }
+
+    &--third {
+      stroke-dasharray: 0px 0px 30px 100px;
+    }
+  }
+}
+
+.is-open {
+  transform: translateX(-5px);
+
+  .line {
+    &--first {
+    stroke-dasharray: 0px 53px 25px 70px;
+    }
+
+    &--second {
+      stroke-dasharray: 0px 53px 25px 70px;
+    }
+
+    &--third {
+      stroke-dasharray: 0px 0px 0px 100px;
     }
   }
 }

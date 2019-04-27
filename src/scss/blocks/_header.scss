@@ -42,6 +42,10 @@ header {
 
   &--nav {
     margin-right: 2rem;
+
+    &.is-open {
+      flex-direction: column;
+    }
   }
 }
 

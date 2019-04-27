@@ -19,8 +19,8 @@ gulp.task("browser-sync", function() {
 		server: {
 			baseDir: "build"
 		},
-		notify: true,
-		open: true,
+		// notify: true,
+		// open: true,
 		online: true, // Work Offline Without Internet Connection
 		tunnel: true, tunnel: "projectname", // Demonstration page: http://projectname.localtunnel.me
 	});
