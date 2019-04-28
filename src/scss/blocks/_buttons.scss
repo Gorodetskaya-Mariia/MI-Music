@@ -2,6 +2,23 @@
 @import "mixins";
 @import "fonts";
 
+.buttons {
+  display: flex;
+}
+
+@media screen and (max-width: $tablet) {
+  .buttons {
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: $tablet + 1) and (max-width: $desktop) {
+  .buttons {
+    flex-direction: row;
+  }
+}
+// --------------------------------------------------------------
+
 .button {
   position: relative;
   padding: 0;
@@ -23,6 +40,11 @@
 
     &:hover {
       color: $header-bg;
+    }
+
+    &--perf {
+      width: 198px;
+      height: 6rem;
     }
   }
 
@@ -60,20 +82,81 @@
 
     &.active {
       display: block;
+      cursor: pointer;
+      transition: transform 1s ease;
+
+      &.is-open {
+        transform: translateX(-5px);
+      }
     }
   }
 }
 
-.button__menu.active {
-  cursor: pointer;
-  transition: transform 1s ease;
+@media screen and (max-width: $tablet) {
+  .button {
+    &__search {
+      width: 200px;
+      height: 5rem;
+      margin-bottom: 2rem;
+    }
 
-  &.is-open {
-    transform: translateX(-5px);
+    &__play {
+      width: 200px;
+      height: 50px;
+      line-height: 50px;
+      margin-left: 0;
+
+      span {
+        width: 50px;
+        height: 50px;
+
+        img {
+          width: 35px;
+          height: 35px;
+          margin-top: 7px;
+        }
+      }
+    }
   }
 }
 
+@media screen and (min-width: $tablet + 1) and (max-width: $desktop) {
+  .button__play {
+    margin-left: 3rem;
+    height: 8rem;
+    line-height: 8rem;
 
+    span {
+      width: 8rem;
+      height: 8rem;
+
+      img {
+        margin-top: 0.4rem;
+        margin-bottom: 0;
+        width: 89%;
+        height: 89%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $desktop + 1) {
+  .button__menu {
+    display: none;
+  }
+}
+// --------------------------------------------------------------
+
+.sold {
+  color: #fb516e;
+  border-color: #2b314b;
+}
+
+.popular {
+  color: $color-accent;
+  background-color: #032c9e;
+  border-color: #032c9e;
+}
 .hamburger {
   position: absolute;
   right: 0;

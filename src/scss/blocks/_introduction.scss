@@ -3,14 +3,26 @@
 @import "fonts";
 
 .introduction {
-  padding-top: 39rem;
+  position: relative;
+  padding-top: 16rem;
   padding-bottom: 20rem;
   font-family: $font-bold;
   background-color: $header-bg;
 
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -24rem;
+    left: 0;
+    width: 100%;
+    height: 24rem;
+    clip-path: polygon(0 0, 100% 0, 100% 24rem, 0 0);
+    background-color: #0134a0;
+  }
+
   &__title {
     display: flex;
-    width: 43%;
+    width: 49.8%;
     margin-bottom: 2rem;
     font-size: 3.6rem;
     letter-spacing: 0.9rem;
@@ -18,18 +30,19 @@
     background-color: #1b2550;
 
     h2 {
-      padding: 0.5rem;
-      padding-right: 10rem;
+      padding-left: 1rem;
+      font-size: 3.5rem;
+      margin-right: auto;
     }
 
     span:first-of-type {
       display: block;
-      width: 1rem;
+      width: 2rem;
       background-color: #fb516e;
     }
 
     span:nth-of-type(2) {
-      width: 2rem;
+      width: 6rem;
       background-color: #6aff7f;
     }
   }
@@ -43,14 +56,74 @@
 
   &__text {
     @include clear;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
     font-family: $font-medium;
     font-size: 3.6rem;
   }
+}
 
-  .buttons {
-    display: flex;
+@media screen and (max-width: $desktop) {
+  .introduction__big-text {
+    margin-bottom: 1.5rem;
   }
 }
 
+@media screen and (max-width: $tablet) {
+  .introduction {
+    padding-top: 8rem;
+    padding-bottom: 4rem;
 
+    &::before {
+      bottom: -12.9rem;
+      height: 13rem;
+      clip-path: polygon(0 0, 100% 0, 100% 13rem, 0 0);
+    }
+
+    &__title {
+      width: 210px;
+      margin-bottom: 1.8rem;
+      font-size: 1.6rem;
+
+      h2 {
+        padding-right: 0;
+        margin-right: auto;
+      }
+    }
+
+    &__big-text {
+      font-size: 4rem;
+    }
+
+    &__text {
+      font-size: 1.6rem;
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+@media screen and (min-width: $tablet + 1) and (max-width: $desktop) {
+  .introduction {
+    padding-top: 15rem;
+    padding-bottom: 13rem;
+
+    &::before {
+      bottom: -16.9rem;
+      height: 17rem;
+      clip-path: polygon(0 0, 100% 0, 100% 17rem, 0 0);
+    }
+
+    &__title {
+      width: 316px;
+      font-size: 2.3rem;
+    }
+
+    &__big-text {
+      font-size: 8rem;
+    }
+
+    &__text {
+     font-size: 2.6rem;
+     margin-bottom: 3rem;
+    }
+  }
+}

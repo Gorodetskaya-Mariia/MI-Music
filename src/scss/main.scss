@@ -33,12 +33,33 @@ body * {
   margin: 0 auto;
 }
 
-h1, h2 {
+h1, h2, p, ul {
   @include clear;
+}
+
+.divider {
+  display: flex;
+  width: 148px;
+  height: 0.4rem;
+  margin-bottom: 13.5rem;
+  background-color: #33cbcc;
+
+  span:first-of-type {
+    display: block;
+    margin-left: auto;
+    width: 1rem;
+    background-color: #032c9e;
+  }
+
+  span:nth-of-type(2) {
+    width: 1em;
+    background-color: #6aff7f;
+  }
 }
 
 @import "blocks/header";
 @import "blocks/introduction";
 @import "blocks/buttons";
+@import "blocks/performance";
 // ======media queries============
 @import "media";

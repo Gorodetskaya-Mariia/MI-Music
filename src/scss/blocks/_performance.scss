@@ -1,0 +1,140 @@
+.performances {
+  padding-top: 34.4rem;
+  padding-bottom: 30rem;
+  background-color: #131a37;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .wrapper_ {
+    display: flex;
+    margin-bottom: 4rem;
+  }
+}
+
+.performance {
+  &__title {
+    @include title;
+    margin-right: 1.7rem;
+
+    &-decor {
+      margin-top: 0.4rem;
+      display: flex;
+      flex-wrap: wrap;
+      width: 3rem;
+
+      li {
+        width: 0.6rem;
+        height: 0.6rem;
+        background-color: $color-accent;
+        border-radius: 50%;
+
+        &:nth-child(2n-1) {
+          margin-right: 1.5rem;
+        }
+
+        &:first-child {
+          margin-bottom: 1.5rem;
+        }
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8rem;
+  }
+
+  &__data {
+    display: flex;
+    margin-right: 3rem;
+  }
+
+  &__date {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 2.3rem;
+    font-family: $font-semibold;
+    font-size: 3rem;
+    line-height: 1.9rem;
+    letter-spacing: 0.048rem;
+
+    color: #fb516e;
+    background-color: #1b2550;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+
+    span {
+      display: block;
+      margin-top: 1.3rem;
+      font-size: 1.8rem;
+      letter-spacing: 0.036rem;
+      text-transform: uppercase;
+    }
+  }
+
+  &__image {
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    font-family: $font-regular;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+    color: #778fc3;
+
+    b {
+      margin-bottom: 1.5rem;
+      font-size: 2.6rem;
+      color: $color-accent;
+    }
+  }
+
+  &__location {
+    display: flex;
+    flex-direction: column;
+    margin-right: 8.3rem;
+    font-family: $font-regular;
+    font-size: 1.6rem;
+    line-height: 3.2rem;
+  }
+
+  &__time {
+    color: #64f07a;
+  }
+
+  &__address {
+    color: #778fc3;
+  }
+
+  &__address,
+  &__time {
+    position: relative;
+    padding-left: 3.5rem;
+
+    &::before {
+      @include pseudo-el;
+      width: 16px;
+      height: 16px;
+      top: 4px;
+      background-image: url('../img/compass.png');
+    }
+  }
+
+  &__time::before {
+    background-image: url('../img/time.png');
+  }
+
+  &__more {
+    font-size: 1.8rem;
+    font-family: $font-medium;
+    text-decoration: none;
+  }
+}

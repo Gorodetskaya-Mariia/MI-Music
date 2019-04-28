@@ -16,6 +16,15 @@ header {
   }
 }
 
+@media screen and (max-width: $tablet) {
+  header .wrapper {
+    padding-right: 0;
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+}
+// --------------------------------------------------------------
+
 .logo__wrapper {
   @include clear;
   display: flex;
@@ -29,8 +38,30 @@ header {
   }
 }
 
+@media screen and (max-width: $tablet) {
+  .logo__wrapper {
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media screen and (min-width: $tablet + 1) and (max-width: $desktop) {
+  .logo__wrapper {
+    align-self: baseline;
+  }
+}
+// --------------------------------------------------------------
+
 .menu {
   display: flex;
+}
+
+@media screen and (max-width: $desktop) {
+  .menu {
+    margin-left: auto;
+    flex-direction: column;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
 }
 
 .menu__list {
@@ -46,6 +77,52 @@ header {
     &.is-open {
       flex-direction: column;
     }
+  }
+}
+
+@media screen and (max-width: $desktop) {
+  .menu__list--nav {
+    overflow: auto;
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .menu__list--social {
+    align-self: flex-end;
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .menu__list--social {
+    padding-right: $mobile-padding;
+  }
+
+  .menu__list--nav.active {
+    position: fixed;
+    padding: 2rem;
+    display: flex;
+    width: 40%;
+    margin-right: 0;
+    flex-direction: column;
+    top: 0;
+    right: 0;
+    background-color: $color-accent;
+    z-index: 2;
+    border-bottom-left-radius: 22px;
+  }
+}
+
+@media screen and (min-width: $tablet + 1) and (max-width: $desktop) {
+  .menu__list--nav {
+    margin-right: 0;
+    margin-bottom: 2rem;
+    padding-top: 1.4rem;
+    padding-bottom: 1.2rem;
   }
 }
 
@@ -87,6 +164,15 @@ header {
   }
 }
 
+@media screen and (max-width: $tablet) {
+  .menu__item--social {
+    border: 0;
+  }
+
+  .menu__item--nav {
+    margin: 1rem 1rem 2rem 0;
+  }
+}
 .menu__link {
   position: relative;
   text-decoration: none;
@@ -166,6 +252,8 @@ header {
     border: none;
   }
 }
+
+
 
 .menu__button {
   display: none;
