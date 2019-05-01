@@ -5,20 +5,10 @@
 .introduction {
   position: relative;
   padding-top: 16rem;
-  padding-bottom: 20rem;
+  padding-bottom: 44rem;
   font-family: $font-bold;
   background-color: $header-bg;
-
-  &::before {
-    content: '';
-    position: absolute;
-    bottom: -24rem;
-    left: 0;
-    width: 100%;
-    height: 24rem;
-    clip-path: polygon(0 0, 100% 0, 100% 24rem, 0 0);
-    background-color: #0134a0;
-  }
+  clip-path: polygon(0 75%, 100% 100%, 100% 0, 0 0);
 
   &__title {
     display: flex;
