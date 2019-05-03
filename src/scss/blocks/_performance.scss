@@ -1,12 +1,15 @@
 .performances {
+  position: relative;
   margin-top: -24rem;
   padding-top: 34.4rem;
-  padding-bottom: 102rem;
+  padding-bottom: 62rem;
   background-color: #131a37;
-  background-image: url('../img/Background.png');
+  background-image: url('../img/liveDatesBg.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  clip-path: url(#myPath);
+  z-index: 1;
 
   .wrapper {
     display: flex;

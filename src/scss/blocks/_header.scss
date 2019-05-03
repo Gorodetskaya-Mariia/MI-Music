@@ -29,7 +29,10 @@ header {
   @include clear;
   display: flex;
   align-items: center;
+  font-family: $font-bold;
+  font-weight: 700;
   font-size: 2.4rem;
+  text-transform: uppercase;
 
   span {
     padding: 1rem;
