@@ -150,13 +150,23 @@
 .sold {
   color: #fb516e;
   border-color: #2b314b;
+
+  &:hover {
+    color: #fb516e;
+    border-color: $color-accent;
+  }
 }
 
 .popular {
   color: $color-accent;
   background-color: #032c9e;
   border-color: #032c9e;
+
+  &:hover {
+    border-color: $color-accent;
+  }
 }
+
 .hamburger {
   position: absolute;
   right: 0;

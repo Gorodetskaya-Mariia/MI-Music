@@ -103,6 +103,10 @@
       letter-spacing: 0.036rem;
       text-transform: uppercase;
     }
+
+    &.popular {
+      background-color: #032c9e;
+    }
   }
 
   &__image {
@@ -153,6 +157,7 @@
       width: 16px;
       height: 16px;
       top: 4px;
+      left: 0;
       background-image: url('../img/compass.png');
 
     }

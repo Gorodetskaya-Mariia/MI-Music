@@ -7,7 +7,6 @@
 @mixin pseudo-el {
   position: absolute;
   content: "";
-  left: 0;
 }
 
 @mixin button-hover {
@@ -18,6 +17,7 @@
     background-color: $color-accent;
     top: 0;
     right: 0;
+    left: 0;
     bottom: 100%;
     z-index: -1;
     transition: bottom, border-color, background-color, 0.2s ease-in;
