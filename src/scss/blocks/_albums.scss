@@ -1,5 +1,4 @@
 .albums {
-  position: relative;
   background-color: #0f152c;
   padding-top: 20rem;
   padding-bottom: 35rem;
@@ -10,15 +9,15 @@
   background-position-y: 19%;
   background-repeat: no-repeat;
   background-size: 100%;
-  clip-path: polygon(0 90%, 100% 97.4%, 100% 0, 0 0);
-  z-index: 0;
+  clip-path: polygon(0 90%, 100% 100%, 100% 0, 0 0);
+  z-index: 4;
 
   &::after {
     @include pseudo-el;
     left: -12%;
     top: 36%;
     width: 112%;
-    height: 61.5%;
+    height: 64%;
     background-image: url(../img/Ellipses.png);
     background-repeat: no-repeat;
     opacity: .3;

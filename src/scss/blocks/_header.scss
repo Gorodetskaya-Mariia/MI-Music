@@ -85,7 +85,7 @@ header {
 
   &--nav {
     margin-right: 2rem;
-    transition: opacity, right 0.3s;
+    transition: opacity, right, 0.3s;
 
     &.active {
       position: fixed;
@@ -203,57 +203,10 @@ header {
     margin: 1rem 1rem 2rem 0;
   }
 }
+
 .menu__link {
   position: relative;
   text-decoration: none;
-
-  &--nav {
-    padding: 1.05rem 1.25rem;
-    border-top: 1px solid transparent;
-    border-bottom: 1px solid transparent;
-    transition: padding 0.2s, border-color 0.3s;
-
-    &::after {
-      @include pseudo-el;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      height: 0;
-      border-right: 1px solid transparent;
-      transition: height 0.3s, border-color 0s;
-    }
-
-    &::before {
-      @include pseudo-el;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      height: 0;
-      border-left: 1px solid transparent;
-      transition: height 0.3s, border-color 0s;
-    }
-
-    &:hover::before,
-    &:hover::after {
-      height: 100%;
-      transition-delay: 0.1s;
-      border-color: #ffffff;
-    }
-
-    &:hover::before {
-      bottom: 0;
-    }
-
-    &:hover::after {
-      height: 100%;
-    }
-
-    &:hover {
-      border-color: #ffffff;
-      outline: none;
-    }
-  }
 
   &--facebook {
     svg {

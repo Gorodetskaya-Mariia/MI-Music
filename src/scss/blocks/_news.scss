@@ -1,0 +1,140 @@
+@import "vars";
+@import "mixins";
+@import "fonts";
+
+.news-section {
+  position: relative;
+  margin-top: -23rem;
+  padding-top: 45.4rem;
+  padding-bottom: 62rem;
+  background-color: #013599;
+  background-image: url('../img/newsBg.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  clip-path: url(#myPath);
+  z-index: 2;
+}
+
+.news {
+  display: flex;
+
+  &__list {
+    width: 107rem;
+    margin-right: 10rem;
+    background-color: rgba(51, 203, 204, 0.4);
+    border-radius: 10px;
+  }
+
+  &__title {
+    padding: 5rem 7rem 4.3rem;
+    font-family: $font-semibold;
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1.9rem;
+    cursor: pointer;
+  }
+
+  &__item {
+
+    &:first-of-type .news__title {
+      background-color: rgba(51, 203, 204, .7);
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    &:nth-of-type(2) .news__title {
+      background-color: rgba(3, 44, 158, .7);
+    }
+
+    &:nth-of-type(3) .news__title {
+      background-color: rgba(3, 44, 158, .5);
+    }
+  }
+
+  &__view-all {
+    position: relative;
+    padding: 5rem 7rem;
+    font-family: $font-medium;
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 1.9rem;
+    cursor: pointer;
+
+    &::before {
+      @include pseudo-el;
+      top: calc(50% - 1px);
+      left: 45.5%;
+      width: 17px;
+      height: 2px;
+      background-color: $color-accent;
+    }
+
+    &::after {
+      @include pseudo-el;
+      top: calc(50% - 5px);
+      left: 46.4%;
+      width: 9px;
+      height: 9px;
+      border-right: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      transform: rotate(-45deg);
+    }
+  }
+
+  &__content {
+
+    &-wrapper {
+      width: 0;
+      height: 0;
+
+      &.is-open {
+        width: calc(100% + 8px);
+        height: auto;
+        padding: 5rem 7rem 5.3rem;
+        background-color: #032c9e;
+        border-left: 8px solid #6aff7f;
+        margin-left: -8px;
+      }
+    }
+
+    &-data {
+      margin-bottom: 1rem;
+      font-family: $font-bold;
+      font-size: 0;
+      font-weight: 700;
+      letter-spacing: 0.13rem;
+      text-transform: uppercase;
+    }
+
+    &-title {
+      margin-bottom: 1.4rem;
+      font-family: $font-semibold;
+      font-size: 0;
+      font-weight: 600;
+    }
+
+    &-text {
+      font-family: $font-RorotoRegular;
+      font-size: 0;
+      font-weight: 400;
+      line-height: 2.4rem;
+      color: #5882f5;
+    }
+  }
+}
+
+.news__content-wrapper.is-open {
+  .news__content-data {
+    font-size: 1.3rem;
+  }
+
+  .news__content-title {
+    font-size: 2.6rem;
+  }
+
+  .news__content-text {
+    font-size: 1.6rem;
+  }
+}

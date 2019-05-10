@@ -1,0 +1,259 @@
+@import "vars";
+@import "mixins";
+@import "fonts";
+
+.social-section {
+  position: relative;
+  background-color: #000000;
+  padding-top: 20rem;
+  padding-bottom: 37rem;
+  margin-top: -25rem;
+
+  background-image: url('../img/social-bg.jpg');
+  background-position-x: center;
+  background-position-y: 28%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  clip-path: polygon(0 98%, 100% 88%, 100% 11%, 0 0);
+  z-index: 3;
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 34rem;
+  }
+
+  h2 {
+    @include title;
+    line-height: 8rem;
+    margin-bottom: 1.5rem;
+    padding-top: 11rem;
+  }
+
+  .divider {
+    margin-bottom: 3.3rem;
+  }
+
+  &__menu-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__menu-button {
+    position: relative;
+    margin-bottom: 2.2rem;
+    font-family: $font-bold;
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: 0.028rem;
+    text-transform: uppercase;
+    border-right: 0;
+    border-left: 0;
+    background-color: transparent;
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &.current {
+      color: #fb516e;
+    }
+  }
+
+  &__posts {
+    display: flex;
+  }
+
+  &__posts-left,
+  &__posts-right {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    z-index: -1;
+    opacity: 0;
+
+    &-wrapper {
+      @include pseudo-el;
+      width: 100%;
+    }
+
+    &.active {
+      visibility: visible;
+      z-index: 0;
+      opacity: 1;
+      height: 100%;
+      width: 37rem;
+    }
+  }
+
+  &__posts-left {
+    margin-right: 3rem;
+
+    &-wrapper {
+      bottom: 0;
+      left: -100%;
+      transition: bottom, left, 0.3s;
+    }
+  }
+
+  &__posts-right {
+
+    &-wrapper {
+      top: 0;
+      left: 100%;
+      transition: top, left, 0.3s;
+    }
+  }
+
+  &__post {
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 7px;
+    transition: height 0.3s;
+
+    &:first-of-type {
+      margin-bottom: 3rem;
+    }
+  }
+}
+
+.post {
+
+  &__wrapper {
+    padding: 6.3rem 6.3rem 7rem;
+    font-family: $font-semibold;
+    font-size: 1.8rem;
+    font-weight: 400;
+  }
+
+  &__image {
+    object-fit: cover;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+  }
+
+  &__title {
+    margin-bottom: 3.5rem;
+    font-family: $font-semibold;
+    font-size: 2.6rem;
+    font-weight: 600;
+    line-height: 3.7rem;
+  }
+
+  &__link {
+    color: #65db7a;
+    margin-bottom: 2rem;
+  }
+
+  &__link,
+  &__text,
+  &__hashtag {
+    line-height: 3rem;
+  }
+
+  &__resource {
+    display: flex;
+  }
+
+  &__resource-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    margin-right: 2rem;
+    border-radius: 2px;
+    transition: all 0.2s;
+    z-index: 1;
+
+    svg {
+      fill: $color-accent;
+    }
+
+    @include button-hover;
+
+    &:hover::after {
+      border-radius: 2px;
+    }
+
+    &--youtube {
+      background-color: #fb516e;
+
+      &:hover svg {
+        fill: #fb516e;
+      }
+    }
+
+    &--facebook {
+      padding: 0 0.3rem;
+      background-color: #032c9e;
+
+      svg {
+        width: 40px;
+        height: 40px;
+        margin-left: -6px;
+        margin-top: -2px;
+      }
+
+      &:hover svg {
+        fill: #032c9e;
+      }
+    }
+
+    &--twitter {
+      background-color: #33cbcc;
+
+      &:hover svg {
+        fill: #33cbcc;
+      }
+    }
+  }
+
+  &__resource-info {
+    font-family: $font-bold;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.6rem;
+  }
+
+  &__resource-data {
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+  }
+
+  &__resource-date {
+    color: #778fc3;
+  }
+}
+
+.social-section__posts-right .social-section__post:first-of-type {
+  margin-top: 11rem;
+}
+
+.social-section__posts-left .social-section__post:last-of-type {
+  margin-bottom: 11rem;
+}
+
+.social-section__posts-right.hide .social-section__posts-right-wrapper {
+  top: 100%;
+}
+
+.social-section__posts-left.hide .social-section__posts-left-wrapper {
+  bottom: 100%;
+}
+
+.social-section__posts-right.hide .social-section__posts-right-wrapper,
+.social-section__posts-left.hide .social-section__posts-left-wrapper {
+  .social-section__post {
+    height: 0;
+  }
+
+  .social-section__post * {
+    height: 0;
+  }
+}
+
+.social-section__posts-left.active .social-section__posts-left-wrapper,
+.social-section__posts-right.active .social-section__posts-right-wrapper {
+  left: 0;
+}
