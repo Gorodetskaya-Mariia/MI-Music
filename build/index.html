@@ -907,31 +907,113 @@
           </article>
         </div>
       </section>
-      <section class='signUp'>
-        <div class='wrapper'>
+      <section class="signUp">
+        <div class="wrapper">
           <h2>Sign Up For Exclusives</h2>
           <div class="divider">
-              <span></span>
-              <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <p class="signUp__text">
+            Sign up for the latest news, exclusive offers and ticket pre-sales.
+          </p>
+          <form post="get">
+            <div class="form__item-wrapper">
+              <input
+                class="form__input"
+                id="name"
+                type="text"
+                name="userName"
+                pattern="^[A-Za-zА-Яа-яЁё]+$"
+              />
+              <label class="form__label">Name</label>
             </div>
-            <p class='signUp__text'>
-              Sign up for the latest news, exclusive offers and ticket pre-sales.
-            </p>
-            <form post="get">
-              <div class="form__item-wrapper">
-                 <input class="form__input" id="name" type="text" name="userName"
-                    pattern="^[A-Za-zА-Яа-яЁё]+$">
-                    <label class="form__label">Name</label>
-                  </div>
-              <div class="form__item-wrapper">
-                  <input class="form__input" id="email" type="email" name="userEmail">
-                  <label class="form__label">Email</label>
-                </div>
-              <button class="button button__form" type="submit">Sign Up Now</button>
-            </form>
+            <div class="form__item-wrapper">
+              <input
+                class="form__input"
+                id="email"
+                type="email"
+                name="userEmail"
+              />
+              <label class="form__label">Email</label>
+            </div>
+            <button class="button button__form" type="submit">
+              Sign Up Now
+            </button>
+          </form>
         </div>
       </section>
     </main>
+    <footer>
+      <div class="wrapper">
+        <p class="logo__wrapper"><span>MI</span>Music.</p>
+        <nav class="menu">
+          <ul class="menu__list menu__list--footer">
+            <li class="menu__item menu__item--footer current">
+              <a class="menu__link menu__link--footer hover" href="#">Home</a>
+            </li>
+            <li class="menu__item menu__item--footer">
+              <a class="menu__link menu__link--footer hover" href="#">Live</a>
+            </li>
+            <li class="menu__item menu__item--footer">
+              <a class="menu__link menu__link--footer hover" href="#">Albums</a>
+            </li>
+            <li class="menu__item menu__item--footer">
+              <a class="menu__link menu__link--footer hover" href="#">News</a>
+            </li>
+            <li class="menu__item menu__item--footer">
+              <a class="menu__link menu__link--footer hover" href="#">About</a>
+            </li>
+          </ul>
+          <ul class="menu__list menu__list--social">
+            <li class="menu__item menu__item--social">
+              <a class="menu__link menu__link--facebook" href="#">
+                <svg width="40" height="40">
+                  <use
+                    xlink:href="#facebook"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  ></use>
+                </svg>
+                <span class="visually-hidden">Facebook</span>
+              </a>
+            </li>
+            <li class="menu__item menu__item--social">
+              <a class="menu__link menu__link--twitter" href="#">
+                <svg width="17" height="15">
+                  <use
+                    xlink:href="#twitter"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  ></use>
+                </svg>
+                <span class="visually-hidden">Twitter</span>
+              </a>
+            </li>
+            <li class="menu__item menu__item--social">
+              <a class="menu__link menu__link--instagram" href="#">
+                <svg width="21" height="21">
+                  <use
+                    xlink:href="#instagram"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  ></use>
+                </svg>
+                <span class="visually-hidden">Instagram</span>
+              </a>
+            </li>
+            <li class="menu__item menu__item--social">
+              <a class="menu__link menu__link--youtube" href="#">
+                <svg width="20" height="16">
+                  <use
+                    xlink:href="#youtube"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  ></use>
+                </svg>
+                <span class="visually-hidden">Youtube</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
     <script src="js/scripts.min.js"></script>
     <svg width="0" height="0" viewBox="0 0 1920 2108">
       <defs>

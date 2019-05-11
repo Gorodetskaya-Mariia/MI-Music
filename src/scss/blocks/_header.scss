@@ -80,6 +80,8 @@ header {
   @include clear;
   display: flex;
   align-items: center;
+  font-family: $font-bold;
+  font-weight: 700;
   font-size: 1.6rem;
   letter-spacing: 0.24rem;
 
@@ -106,6 +108,13 @@ header {
       visibility: visible;
       transition: right 0.3s;
     }
+  }
+
+  &--footer {
+    margin-bottom: 3.5rem;
+    font-size: 1.4rem;
+    letter-spacing: 0.21rem;
+    text-transform: uppercase;
   }
 }
 
@@ -157,6 +166,7 @@ header {
 
 .menu__item {
   position: relative;
+  transition: color 0.3s;
 
   &--nav.current::after {
     @include pseudo-el;
@@ -190,6 +200,15 @@ header {
 
     &:hover svg {
       fill: #0134a0;
+    }
+  }
+
+  &--footer {
+    margin-right: 2rem;
+    border-color: #0134a0;
+
+    &:hover svg {
+      fill: $color-accent;
     }
   }
 }
@@ -226,9 +245,13 @@ header {
       margin-top: 10px;
     }
   }
+
+  &--footer {
+    color: #48547c;
+  }
 }
 
-.menu__item--nav.current .menu__link--nav {
+.menu__item.current .menu__link {
   border: 0;
 
   &:hover::before,
@@ -236,6 +259,10 @@ header {
     height: 0;
     border: none;
   }
+}
+
+.menu__item--footer.current .menu__link--footer {
+  color: $color-accent;
 }
 
 .menu__button {
