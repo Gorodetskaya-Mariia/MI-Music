@@ -112,12 +112,34 @@
         previousContent = document.querySelector('.news__content-wrapper.is-open');
 
         toggleAppearance("SHOW", currentContent, 'is-open');
-        // setTimeout(function(){
-          toggleAppearance("HIDE", previousContent, 'is-open');
-        // }, 300
-        // );
+        toggleAppearance("HIDE", previousContent, 'is-open');
     }
   }
+
+  //validate form
+  let inputs = document.querySelectorAll("form .form__input");
+  for (let i = 0; i < inputs.length; i++) {
+    inputs[i].onchange = function(){
+      toggleAppearance("SHOW", this, 'changed');
+    }
+  }
+
+	document.querySelector("form").onsubmit = function(e) {
+		let error = false;
+
+		for (let i = 0; i < inputs.length; i++) {
+     	if (inputs[i].value === "") {
+				inputs[i].classList.add("error");
+				error = true;
+			} else {
+				inputs[i].classList.remove("error");
+			}
+		}
+
+		if (error) {
+			e.preventDefault();
+		}
+	};
 })();
 
 function toggleAppearance(state, nav, activeClass) {

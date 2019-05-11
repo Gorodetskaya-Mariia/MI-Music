@@ -98,6 +98,20 @@
       }
     }
   }
+
+  &__form {
+    width: 40rem;
+    height: 6rem;
+    margin: 0 auto;
+    line-height: 6rem;
+    letter-spacing: 0.28rem;
+
+    @include button-hover;
+
+    &:hover {
+      color: #0f152c;
+    }
+  }
 }
 
 @media screen and (max-width: $tablet) {

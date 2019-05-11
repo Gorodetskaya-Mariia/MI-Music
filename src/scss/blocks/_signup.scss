@@ -1,0 +1,91 @@
+@import "vars";
+@import "mixins";
+@import "fonts";
+
+.signUp {
+  margin-top: -49rem;
+  padding-top: 77.4rem;
+  padding-bottom: 50rem;
+  background-color: #0f152c;
+  background-image: url('../img/signBg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: 0;
+  background-position-x: center;
+  z-index: 1;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  h2 {
+    @include title;
+    margin-bottom: 5rem;
+  }
+
+  .divider {
+    margin-bottom: 3.2rem;
+  }
+
+  &__text {
+    margin-bottom: 9rem;
+    font-family: $font-RorotoRegular;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.9rem;
+    color: #778fc3;
+  }
+}
+
+.form {
+  &__item-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4.5rem;
+  }
+
+  &__input {
+    width: 40rem;
+    padding: 1rem;
+    font-family: $font-bold;
+    font-size: 1.6rem;
+    font-weight: 700;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid $color-accent;
+    transition: border-color 0.3s;
+
+    &.error {
+      border-color: red;
+    }
+
+    &.changed {
+      color: $color-accent;
+      background-color: transparent;
+    }
+  }
+
+  &__label {
+    @include pseudo-el;
+    top: 0.5rem;
+    font-family: $font-bold;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 0.24rem;
+    text-transform: uppercase;
+    transition: transform, top, 0.4s;
+  }
+}
+
+.form__input:hover ~ .form__label,
+.form__input:focus ~ .form__label,
+.form__input:focus ~ .form__label,
+.form__input.changed ~ .form__label, {
+  display: block;
+  top: -2rem;
+  transform: scale(0.6);
+}
