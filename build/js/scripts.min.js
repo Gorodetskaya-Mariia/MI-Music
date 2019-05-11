@@ -23,8 +23,7 @@
     let nav = document.querySelector(".header__nav-list"),
       height = document.querySelector("header").offsetHeight,
       navToggle = document.querySelector(".button__menu"),
-      navToggleActiveClass = "active",
-      viewport = document.body.clientWidth;
+      navToggleActiveClass = "active";
 
     if (window.pageYOffset >= height) {
       toggleAppearance("SHOW", navToggle, navToggleActiveClass);
@@ -38,6 +37,7 @@
     }
   });
 
+  //flipping social blocks
   var socialBtn = document.querySelectorAll('.social-section__menu-button'),
       socialPosts = document.querySelector('.social-section__posts'),
       socialPostsHeight = document.querySelector('.social-section__posts-right-wrapper').clientHeight;
@@ -51,18 +51,17 @@
           currentAtr = current.getAttribute('data-social'),
           postLeftActive = document.querySelector('.social-section__posts-left.active'),
           postRightActive = document.querySelector('.social-section__posts-right.active'),
-          postLeftActiveAtr = postLeftActive.getAttribute('data-social'),
           postLeftAll = document.querySelectorAll('.social-section__posts-left'),
           postRightAll = document.querySelectorAll('.social-section__posts-right'),
           previousBtn = document.querySelector('.social-section__menu-button.current');
-          // console.log(postLeftActiveAtr);
 
-          postRightActive.classList.add('hide');
-          postLeftActive.classList.add('hide');
+          toggleAppearance("SHOW", postRightActive, 'hide');
+          toggleAppearance("SHOW", postLeftActive, 'hide');
+
           for(let i=0; i < postLeftAll.length; i++){
             let currentPostLeft = postLeftAll[i],
                 currentPostLeftAtr = currentPostLeft.getAttribute('data-social');
-            // currentPostLeft.classList.remove('hide');
+
             if(currentAtr == currentPostLeftAtr){
 							var nextPostLeft = currentPostLeft;
             }
@@ -71,39 +70,54 @@
           for(let i=0; i < postRightAll.length; i++){
             let currentPostRight = postRightAll[i],
                 currentPostRightAtr = currentPostRight.getAttribute('data-social');
-            // currentPostRight.classList.remove('hide');
+
             if(currentAtr == currentPostRightAtr){
 							var nextPostRight = currentPostRight;
             }
           }
-          previousBtn.classList.remove('current');
-          current.classList.add('current');
+
+          toggleAppearance("HIDE", previousBtn, 'current');
+          toggleAppearance("SHOW", current, 'current');
           setTimeout(function(){
-            postRightActive.classList.remove('active');
-            postLeftActive.classList.remove('active');
-            nextPostLeft.classList.add('active');
-            nextPostRight.classList.add('active');
-          }, 200
+            toggleAppearance("HIDE", postRightActive, 'active');
+            toggleAppearance("HIDE", postLeftActive, 'active');
+            toggleAppearance("SHOW", nextPostLeft, 'active');
+            toggleAppearance("SHOW", nextPostRight, 'active');
+            }, 200
           );
 
           setTimeout(function(){
             for(let i=0; i < postLeftAll.length; i++){
               let currentPostLeft = postLeftAll[i];
-              currentPostLeft.classList.remove('hide');
+              toggleAppearance("HIDE", currentPostLeft, 'hide');
             }
 
             for(let i=0; i < postRightAll.length; i++){
               let currentPostRight = postRightAll[i];
-
-              currentPostRight.classList.remove('hide');
-
+              toggleAppearance("HIDE", currentPostRight, 'hide');
             }
-          }, 400
+            }, 400
           );
-
     };
   }
 
+  //flipping news
+  var newsBtn = document.querySelectorAll('.news__title');
+
+  for(let i=0; i < newsBtn.length; i++){
+    let currentBtn = newsBtn[i];
+    currentBtn.onclick = function() {
+      let current = this,
+        currentContent = current.nextElementSibling,
+        previousContent = document.querySelector('.news__content-wrapper.is-open');
+
+        toggleAppearance("SHOW", currentContent, 'is-open');
+        // setTimeout(function(){
+          toggleAppearance("HIDE", previousContent, 'is-open');
+        // }, 300
+        // );
+    }
+  }
 })();
 
 function toggleAppearance(state, nav, activeClass) {
