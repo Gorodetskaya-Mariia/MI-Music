@@ -12,33 +12,34 @@
   clip-path: polygon(0 90%, 100% 100%, 100% 0, 0 0);
   z-index: 4;
 
-  &::after {
-    @include pseudo-el;
-    left: -12%;
-    top: 36%;
-    width: 112%;
-    height: 64%;
-    background-image: url(../img/Ellipses.png);
-    background-repeat: no-repeat;
-    opacity: .3;
-    z-index: -1;
-  }
-
-  &::before {
-    @include pseudo-el;
-    right: 9.6%;
-    top: 8.7%;
-    width: 21.8rem;
-    height: 21.8rem;
-    background: linear-gradient(-32deg, rgb(73, 10, 255), rgb(51, 203, 204));
-    border-radius: 50%;
-    z-index: -1;
-  }
-
   .wrapper {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    &::after {
+      @include pseudo-el;
+      left: -54%;
+      top: 36%;
+      width: 188%;
+      height: 84%;
+      background-image: url('../img/Ellipses.png');
+      background-repeat: no-repeat;
+      opacity: .3;
+      z-index: -1;
+    }
+
+    &::before {
+      @include pseudo-el;
+      right: -9rem;
+      top: 6rem;
+      width: 21.8rem;
+      height: 21.8rem;
+      background: linear-gradient(-32deg,#490aff,#33cbcc);
+      border-radius: 50%;
+      z-index: -1;
+    }
   }
 
   .divider {
@@ -291,17 +292,18 @@
     font-family: $font-medium;
     font-size: 1.8rem;
     font-weight: 600;
+    cursor: pointer;
   }
 
   &__decor {
     @include pseudo-el;
     right: 0;
-    bottom: 8%;
-    width: 21.9rem;
-    height: 56rem;
-    background-image: url(../img/Ellipse.png);
-    background-repeat: no-repeat;
+    top: 207rem;
+    width: 25rem;
+    height: 48rem;
     z-index: 5;
+    clip-path: circle(25rem at 130% 50%);
+    background: linear-gradient(120deg,#fd5960,#101783);
   }
 }
 

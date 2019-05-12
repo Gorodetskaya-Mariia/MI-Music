@@ -111,8 +111,10 @@
         currentContent = current.nextElementSibling,
         previousContent = document.querySelector('.news__content-wrapper.is-open');
 
-        toggleAppearance("SHOW", currentContent, 'is-open');
-        toggleAppearance("HIDE", previousContent, 'is-open');
+        if(!currentContent.classList.contains('is-open')) {
+          toggleAppearance("SHOW", currentContent, 'is-open');
+          toggleAppearance("HIDE", previousContent, 'is-open');
+        }
     }
   }
 

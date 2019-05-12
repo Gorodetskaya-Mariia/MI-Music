@@ -3,6 +3,7 @@
 @import "fonts";
 
 .news-section {
+  position: relative;
   margin-top: -23rem;
   padding-top: 45.4rem;
   padding-bottom: 30.5rem;
@@ -17,16 +18,6 @@
 
   .wrapper {
     position: relative;
-
-    // &::after {
-    //   @include pseudo-el;
-    //   bottom: 0;
-    //   left: -20rem;
-    //   width: 19.5rem;
-    //   height: 19.5rem;
-    //   background: linear-gradient(310deg, #26feff, #072293);
-    //   border-radius: 50%;
-    // }
   }
 
   .divider {
@@ -175,7 +166,18 @@
     font-size: 1.8rem;
 		font-weight: 700;
 		text-transform: uppercase;
-	}
+  }
+
+  &__decor {
+    @include pseudo-el;
+    left: 0;
+    top: 0rem;
+    width: 19.5rem;
+    height: 19.5rem;
+    z-index: 5;
+    clip-path: circle(10rem at 130% 50%);
+    background: linear-gradient(310deg, #26feff, #072293);
+  }
 }
 
 .news__content-wrapper.is-open {

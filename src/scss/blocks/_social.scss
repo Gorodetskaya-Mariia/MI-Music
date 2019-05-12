@@ -207,6 +207,14 @@
         fill: #33cbcc;
       }
     }
+
+    &--instagram {
+      background-color: #6aff7f;
+
+      &:hover svg {
+        fill: #6aff7f;
+      }
+    }
   }
 
   &__resource-info {
