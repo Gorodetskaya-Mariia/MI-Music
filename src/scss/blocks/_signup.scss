@@ -22,8 +22,29 @@
   }
 
   h2 {
+    position: relative;
     @include title;
     margin-bottom: 5rem;
+
+    &::after {
+      @include pseudo-el;
+      left: -8rem;
+      bottom: 25rem;
+      width: 7.7rem;
+      height: 7.7rem;
+      background-color: #fb516e;
+      border-radius: 50%;
+    }
+
+    &::before {
+      @include pseudo-el;
+      left: -14rem;
+      top: -22rem;
+      width: 3.4rem;
+      height: 3.4rem;
+      background-color: #6aff7f;
+      border-radius: 50%;
+    }
   }
 
   .divider {

@@ -170,12 +170,12 @@
 
   &__decor {
     @include pseudo-el;
-    left: 0;
-    top: 0rem;
-    width: 19.5rem;
-    height: 19.5rem;
+    left: 4rem;
+    top: 728rem;
+    width: 20.5rem;
+    height: 20.5rem;
     z-index: 5;
-    clip-path: circle(10rem at 130% 50%);
+    clip-path: circle(10rem at 50% 50%);
     background: linear-gradient(310deg, #26feff, #072293);
   }
 }
