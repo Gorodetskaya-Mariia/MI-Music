@@ -141,9 +141,30 @@
 		if (error) {
 			e.preventDefault();
 		}
-	};
+  };
+
+
 })();
 
+(function() {
+  document.onscroll = function(e) {
+    let albumsSection = document.querySelector(".albums"),
+        albumsSectionText = albumsSection.querySelector(".divider"),
+      albumsSectionTop = albumsSection.offsetTop,
+      albumsSectionTextTop = albumsSectionText.offsetTop,
+      elsToAnimate = document.querySelectorAll("span");
+console.log(albumsSectionTop);
+    if ((window.pageYOffset >= (albumsSectionTop + albumsSectionTextTop))&&(window.pageYOffset <= (albumsSectionTop + albumsSectionTextTop + 800)) ) {
+      for (let i = 0; i < elsToAnimate.length; i++) {
+        elsToAnimate[i].classList.add('animate');
+      }
+    } else {
+      for (let i = 0; i < elsToAnimate.length; i++) {
+        elsToAnimate[i].classList.remove('animate');
+      }
+    }
+  };
+})();
 function toggleAppearance(state, nav, activeClass) {
   switch (state) {
     case "SHOW":
