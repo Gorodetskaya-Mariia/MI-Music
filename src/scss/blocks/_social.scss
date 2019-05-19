@@ -143,7 +143,7 @@
 
   &__link {
     color: #65db7a;
-    margin-bottom: 2rem;
+    text-decoration: none;
   }
 
   &__link,
@@ -154,6 +154,7 @@
 
   &__resource {
     display: flex;
+    padding-top: 2rem;
   }
 
   &__resource-link {

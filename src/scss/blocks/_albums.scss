@@ -62,20 +62,22 @@
 
   &__list {
     position: relative;
+    width: 100%;
     display: grid;
     grid-template-columns: 0.9fr 1.1fr 0.9fr;
-    grid-template-rows: 1.9fr 1fr 1fr 1fr 1fr 1.9fr;
+    gid-template-rows: 1.9fr 1fr 1fr 1fr 1fr 1.9fr;
     grid-gap: 2.4rem;
     margin-bottom: 8rem;
   }
 
   &__item {
+    position: relative;
+    width: 100%;
     border-radius: 4px;
     background-color: #6aff7f;
   }
 
   &__item--first {
-    position: relative;
     height: 34rem;
     grid-column: 1;
     grid-row: 2 /5;
@@ -91,30 +93,12 @@
       border-radius: 4px;
     }
 
-    &::before {
-      @include pseudo-el;
-      top: 50%;
-      left: 50%;
-      margin-top: -6.2rem;
-      margin-left: -6.2rem;
-      width: 12.4rem;
-      height: 12.4rem;
-      background-image: url('../img/button-circle-play.png');
-      background-repeat: no-repeat;
-      background-size: cover;
-      border-radius: 4px;
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out;
-      z-index: 1;
-    }
-
     &:hover::before {
       opacity: 1;
     }
   }
 
   &__item--second {
-    position: relative;
     height: 43rem;
     grid-column: 2;
     grid-row: 1 / 4;
@@ -143,7 +127,6 @@
   }
 
   &__item--third {
-    position: relative;
     height: 43rem;
     grid-column: 2;
     grid-row: 4 / 7;
@@ -172,7 +155,6 @@
   }
 
   &__item--fourth {
-    position: relative;
     height: 34rem;
     grid-column: 3;
     grid-row: 3 / 6;
@@ -199,6 +181,45 @@
     }
   }
 
+  &__item-video,
+  &__link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__button {
+    @include pseudo-el;
+    top: 50%;
+    left: 50%;
+    margin-top: -4.2rem;
+    margin-left: -4.2rem;
+    width: 8.4rem;
+    height: 8.4rem;
+    border-radius: 4px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+
+    svg {
+      width: 8.4rem;
+      height: 8.4rem;
+      fill: #ffffff;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
   &__image {
     max-width: 100%;
     height: 100%;
@@ -211,6 +232,10 @@
   }
 
   &__title {
+    display: block;
+    z-index: 1;
+    cursor: pointer;
+
     &--second {
       @include pseudo-el;
       bottom: 4rem;
@@ -229,7 +254,7 @@
           height: 0;
           width: .8rem;
           background-color: $color-accent;
-          transition: height 0.5s;
+          transition: height ease-out 0.5s;
         }
       }
 
@@ -249,7 +274,7 @@
           height: 0;
           width: .7rem;
           background-color: $color-accent;
-          transition: height 0.5s;
+          transition: height ease-out 0.5s;
         }
       }
 
@@ -265,17 +290,24 @@
     @include pseudo-el;
     top: 35%;
     left: 0;
+    display: block;
     width: 100%;
     font-family: $font-bold;
     text-align: center;
+    cursor: pointer;
+
+    &--third {
+      top: 6%;
+      z-index: 1;
+    }
 
     &--fourth {
-      top: 57%;
+      top: 62%;
     }
   }
 
   &__title--third {
-    margin-bottom: 8.2rem;
+    margin-bottom: 21rem;
     font-size: 5.6rem;
     letter-spacing: 0.05rem;
     text-transform: uppercase;
@@ -321,3 +353,16 @@
   }
 }
 
+.albums__button:focus .albums__button,
+.albums__item:hover .albums__button {
+  opacity: 1;
+}
+
+.albums__item.albums__item--enabled .albums__title,
+.albums__item.albums__item--enabled .albums__wrapper {
+  display: none;
+}
+
+.albums__item.albums__item--enabled::after {
+  z-index: -1;
+}
