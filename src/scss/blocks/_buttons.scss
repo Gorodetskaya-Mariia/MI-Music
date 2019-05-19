@@ -64,8 +64,11 @@
       background-color: #012572;
       border-radius: 50%;
 
-      img {
+      svg {
+        width: 70px;
+        height: 70px;
         margin-top: 4px;
+        fill: $color-accent;
         transition: scale 0.3s ease-in-out;
 
         &:hover {
