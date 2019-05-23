@@ -38,7 +38,7 @@ gulp.task("styles", function() {
 
 gulp.task('scripts', function() {
 	return gulp.src([
-    'src/js/main.js',
+    'src/**/*.js',
   // Always at the end
 		])
 	.pipe(concat('scripts.min.js'))
@@ -90,7 +90,7 @@ gulp.task("rsync", function() {
 if (gulpversion == 3) {
 	gulp.task("watch", ["styles", "scripts", "browser-sync"], function() {
 		gulp.watch("src/" + syntax + "/**/*." + syntax + "", ["styles"]);
-		gulp.watch(["libs/**/*.js", "src/js/main.js"], ["scripts"]);
+		gulp.watch(["libs/**/*.js", "src/**/*.js"], ["scripts"]);
 		gulp.watch("src/*.html", ["code"]);
 	});
 	gulp.task("default", ["watch"]);
@@ -99,7 +99,7 @@ if (gulpversion == 3) {
 if (gulpversion == 4) {
 	gulp.task("watch", function() {
 		gulp.watch("src/" + syntax + "/**/*." + syntax + "", gulp.parallel("styles"));
-		gulp.watch(["libs/**/*.js", "src/js/main.js"], gulp.parallel("scripts"));
+		gulp.watch(["libs/**/*.js", "src/**/*.js"], gulp.parallel("scripts"));
 		gulp.watch("src/*.html", gulp.parallel("code"));
 		gulp.watch("src/img", gulp.parallel("images"));
 		gulp.watch("src/fonts", gulp.parallel("fonts"));

@@ -1,8 +1,8 @@
 .albums {
   background-color: #0f152c;
-  padding-top: 20rem;
+  padding-top: 24rem;
   padding-bottom: 35rem;
-  margin-top: -49rem;
+  margin-top: -54rem;
 
   background-image: url('../img/albumsBg.png');
   background-position-x: center;
@@ -33,7 +33,7 @@
     &::before {
       @include pseudo-el;
       right: -9rem;
-      top: 6rem;
+      top: 10rem;
       width: 21.8rem;
       height: 21.8rem;
       background: linear-gradient(-32deg,#490aff,#33cbcc);
