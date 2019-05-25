@@ -55,7 +55,8 @@
 
   &__text {
     margin-bottom: 9rem;
-    font-family: $font-RorotoLight;
+    font-family: $font-RobotoLight;
+    font-weight: 300;
     font-size: 2rem;
     color: #778fc3;
   }
@@ -65,7 +66,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: 0.9fr 1.1fr 0.9fr;
-    gid-template-rows: 1.9fr 1fr 1fr 1fr 1fr 1.9fr;
+    grid-template-rows: 1.9fr 1fr 1fr 1fr 1fr 1.9fr;
     grid-gap: 2.4rem;
     margin-bottom: 8rem;
   }
@@ -241,6 +242,7 @@
       bottom: 4rem;
       left: 4rem;
       font-family: $font-bold;
+      font-weight: 700;
       font-size: 4.8rem;
       text-transform: uppercase;
 
@@ -293,6 +295,7 @@
     display: block;
     width: 100%;
     font-family: $font-bold;
+    font-weight: 700;
     text-align: center;
     cursor: pointer;
 
@@ -320,7 +323,8 @@
 
   &__text--third {
     margin-bottom: 0;
-    font-family: $font-RorotoLight;
+    font-family: $font-RobotoLight;
+    font-weight: 300;
     font-size: 2.4rem;
     letter-spacing: 2.1rem;
   }
@@ -365,4 +369,104 @@
 
 .albums__item.albums__item--enabled::after {
   z-index: -1;
+}
+
+@media screen and (max-width: $tablet) {
+  .albums {
+    padding-bottom: 27rem;
+    background-image: none;
+    clip-path: polygon(0 94%, 100% 100%, 100% 0, 0 0);
+
+    &__decor {
+      display: none;
+    }
+
+    .wrapper {
+      align-items: flex-start;
+    }
+
+    .wrapper::before,
+    .wrapper::after {
+      display: none;
+    }
+
+    h2 {
+      padding-top: 22rem;
+      margin-bottom: 2rem;
+      font-size: 4rem;
+    }
+
+    .divider {
+      margin: 0;
+      margin-bottom: 3rem;
+    }
+
+    &__text {
+      margin-bottom: 5rem;
+    }
+
+    &__item {
+      max-width: 45rem;
+    }
+
+    &__list {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      margin-bottom: 0;
+    }
+
+    &__item--first {
+      grid-column: 1;
+      grid-row: 1/2;
+    }
+
+    &__item--second {
+      height: 38rem;
+      grid-column: 1;
+      grid-row: 2/5;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+
+    &__item--third {
+      height: 38rem;
+      grid-column: 1;
+      grid-row: 4/7;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+
+    &__item--fourth {
+      height: 34rem;
+      grid-column: 1;
+      grid-row: 6/9;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+
+    &__title--second span.animate:first-of-type::before {
+      height: 481%;
+    }
+
+    &__title--second span:nth-of-type(2)::before {
+      top: 1.3rem;
+    }
+
+    &__title--second span.animate:nth-of-type(2)::before {
+      height: 145%;
+    }
+
+    &__title--third {
+      margin-bottom: 18rem;
+    }
+  }
 }

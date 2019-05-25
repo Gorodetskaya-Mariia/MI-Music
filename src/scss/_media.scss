@@ -20,6 +20,10 @@
     padding: 0 $mobile-padding;
   }
 
+  .divider {
+    margin-bottom: 3.5rem;
+  }
+
   .menu__list--nav.active + .button__menu.active span {
     top: 22px;
   }

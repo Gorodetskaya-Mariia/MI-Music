@@ -56,3 +56,22 @@ footer {
     margin-top: -6px;
   }
 }
+
+@media screen and (max-width: $tablet) {
+  footer {
+    margin-top: -20rem;
+  }
+
+  footer .logo__wrapper {
+    margin-bottom: 2.5rem;
+    font-size: 2.4rem;
+  }
+
+  .menu__list--footer {
+    margin-bottom: 2.5rem;
+  }
+
+  .menu__item--footer {
+    margin-right: 1rem;
+  }
+}

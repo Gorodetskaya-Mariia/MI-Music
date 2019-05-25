@@ -118,6 +118,32 @@
   }
 }
 
+@media screen and (max-width: $tablet) {
+  .social-section {
+    padding-top: 14rem;
+    clip-path: polygon(0 98%,100% 88%,100% 6%,0 0);
+
+    .wrapper {
+      padding-top: 0;
+      flex-direction: column;
+    }
+
+    &__posts {
+      flex-direction: column;
+    }
+
+    &__posts-left,
+    &__posts-right {
+      position: relative;
+    }
+
+    &__posts-left-wrapper,
+    &__posts-right-wrapper {
+      position: relative;
+    }
+  }
+}
+
 .post {
 
   &__wrapper {

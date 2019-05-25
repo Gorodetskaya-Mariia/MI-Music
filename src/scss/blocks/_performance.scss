@@ -23,33 +23,18 @@
   }
 }
 
+@media screen and (max-width: $tablet) {
+  .performances {
+    padding-top: 22.4rem;
+    padding-bottom: 28rem;
+    clip-path: url(#smallwave);
+  }
+}
 
 .performance {
   &__title {
     @include title;
-    margin-right: 1.7rem;
-
-    &-decor {
-      margin-top: 0.4rem;
-      display: flex;
-      flex-wrap: wrap;
-      width: 3rem;
-
-      li {
-        width: 0.6rem;
-        height: 0.6rem;
-        background-color: $color-accent;
-        border-radius: 50%;
-
-        &:nth-child(2n-1) {
-          margin-right: 1.5rem;
-        }
-
-        &:first-child {
-          margin-bottom: 1.5rem;
-        }
-      }
-    }
+    margin-bottom: 4rem;
   }
 
   &__item {
@@ -180,4 +165,45 @@
     font-family: $font-medium;
     text-decoration: none;
   }
+}
+
+@media screen and (max-width: $tablet) {
+  .performance {
+    &__title {
+      font-size: 4rem;
+      margin-bottom: 2rem;
+    }
+
+    &__item {
+      flex-wrap: wrap;
+      align-items: flex-start;
+
+      &:nth-of-type(2)::before,
+      &:nth-of-type(3)::before {
+        display: none;
+      }
+
+      &:last-of-type {
+        padding-bottom: 0;
+      }
+    }
+
+    &__data {
+      margin-right: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    &__description {
+      margin-right: 8rem;
+      margin-bottom: 3rem;
+    }
+
+    &__location {
+      margin-right: auto;
+    }
+  }
+}
+
+@media screen and (min-width: $tablet + 1) and (max-width: $desktop) {
+
 }

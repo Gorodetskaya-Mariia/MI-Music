@@ -54,6 +54,10 @@ header {
 @media screen and (max-width: $tablet) {
   .logo__wrapper {
     margin-bottom: 0.5rem;
+
+    &--albums {
+      margin-bottom: 2.5rem;
+    }
   }
 }
 
@@ -129,10 +133,6 @@ header {
     &::-webkit-scrollbar {
       display: none;
     }
-  }
-
-  .menu__list--social {
-    align-self: flex-end;
   }
 }
 
