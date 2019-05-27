@@ -1,0 +1,126 @@
+
+.post {
+
+  &__wrapper {
+    padding: 6.3rem 6.3rem 7rem;
+    font-family: $font-semibold;
+    font-size: 1.8rem;
+    font-weight: 400;
+  }
+
+  &__image {
+    object-fit: cover;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+  }
+
+  &__title {
+    margin-bottom: 3.5rem;
+    font-family: $font-semibold;
+    font-size: 2.6rem;
+    font-weight: 600;
+    line-height: 3.7rem;
+  }
+
+  &__link {
+    color: #65db7a;
+    text-decoration: none;
+  }
+
+  &__link,
+  &__text,
+  &__hashtag {
+    line-height: 3rem;
+  }
+
+  &__resource {
+    display: flex;
+    padding-top: 2rem;
+  }
+
+  &__resource-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    margin-right: 2rem;
+    border-radius: 2px;
+    transition: all 0.2s;
+    z-index: 1;
+
+    svg {
+      fill: $color-accent;
+    }
+
+    @include button-hover;
+
+    &:hover::after {
+      border-radius: 2px;
+    }
+
+    &--youtube {
+      background-color: #fb516e;
+
+      &:hover svg {
+        fill: #fb516e;
+      }
+    }
+
+    &--facebook {
+      padding: 0 0.3rem;
+      background-color: #032c9e;
+
+      svg {
+        width: 40px;
+        height: 40px;
+        margin-left: -6px;
+        margin-top: -2px;
+      }
+
+      &:hover svg {
+        fill: #032c9e;
+      }
+    }
+
+    &--twitter {
+      background-color: #33cbcc;
+
+      &:hover svg {
+        fill: #33cbcc;
+      }
+    }
+
+    &--instagram {
+      background-color: #6aff7f;
+
+      &:hover svg {
+        fill: #6aff7f;
+      }
+    }
+  }
+
+  &__resource-info {
+    font-family: $font-bold;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.6rem;
+  }
+
+  &__resource-data {
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+  }
+
+  &__resource-date {
+    color: #778fc3;
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .post {
+    &__image {
+      object-fit: fill;
+      max-width: 100%;
+    }
+  }
+}

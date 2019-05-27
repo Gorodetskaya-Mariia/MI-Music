@@ -165,6 +165,10 @@
       width: 107%;
       overflow: auto;
     }
+
+    &__menu-button.current {
+      color: #032c9e;
+    }
   }
 }
 
