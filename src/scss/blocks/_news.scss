@@ -30,15 +30,30 @@
   }
 }
 
+@media screen and (max-width: $tablet) {
+  .news-section {
+    margin-top: -29rem;
+    padding-top: 18.4rem;
+    background-image: none;
+
+    .wrapper {
+      padding-left: 2.5rem;
+      padding-right: 0;
+    }
+  }
+}
+
 .news {
   display: flex;
+  flex-wrap: wrap;
 
   &__list {
-    width: 57rem;
+    width: 56rem;
     margin-right: 10rem;
     flex-shrink: 0;
     background-color: rgba(51, 203, 204, 0.4);
-    border-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
   }
 
   &__title {
@@ -67,13 +82,17 @@
     }
   }
 
-  &__view-all {
+  &__link-view-all {
     position: relative;
+    width: 56rem;
     padding: 5rem 7rem;
     font-family: $font-medium;
     font-size: 1.8rem;
     font-weight: 500;
     line-height: 1.9rem;
+    background-color: rgba(51, 203, 204, 0.4);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     cursor: pointer;
 
     &::before {
@@ -160,6 +179,10 @@
     }
 	}
 
+  &__content-current {
+    width: 51rem;
+  }
+
 	&__type {
 		margin-bottom: 2rem;
 		font-family: $font-bold;
@@ -177,6 +200,52 @@
     z-index: 5;
     clip-path: circle(10rem at 50% 50%);
     background: linear-gradient(310deg, #26feff, #072293);
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .news {
+    flex-direction: column;
+
+    &__list {
+      width: 100%;
+      display: flex;
+      margin-bottom: 4rem;
+      overflow: auto;
+    }
+
+    &__item {
+      width: 35rem;
+      flex-shrink: 0;
+
+      &:first-of-type .news__title {
+        border-top-right-radius: 0;
+      }
+
+      &:last-of-type .news__title {
+        border-top-right-radius: 10px;
+      }
+    }
+
+    &__title {
+      padding: 3rem;
+      line-height: 2.5rem;
+      border-radius: 0;
+    }
+
+    &__content-wrapper {
+      border-left: 0;
+      border-right: 3px solid #6aff7f;
+      margin-left: 0;
+    }
+
+    &__decor {
+      display: none;
+    }
+
+    &__content-current {
+      order: 2;
+    }
   }
 }
 
@@ -200,6 +269,14 @@
   }
 }
 
+@media screen and (max-width: $tablet) {
+  .news__content-wrapper.is-open {
+    width: 100%;
+    padding: 3rem;
+    border-right: 3px solid #6aff7f;
+    margin-left: 0;
+  }
+}
 @-webkit-keyframes fadeIn {
   from {
     opacity: 0;

@@ -40,83 +40,95 @@
   //flipping social blocks
   var socialBtn = document.querySelectorAll('.social-section__menu-button'),
       socialPosts = document.querySelector('.social-section__posts'),
-      socialPostsHeight = document.querySelector('.social-section__posts-right-wrapper').clientHeight;
+      socialPostsHeight = document.querySelector('.social-section__posts-right-wrapper').clientHeight,
+      width = document.body.clientWidth;
 
-  socialPosts.style.height = socialPostsHeight + 'px';
+  if (width > 768) {
+    socialPosts.style.height = socialPostsHeight + 'px';
 
-  for(let i=0; i < socialBtn.length; i++){
-    let currentBtn = socialBtn[i];
-    currentBtn.onclick = function() {
-      let current = this,
-          currentAtr = current.getAttribute('data-social'),
-          postLeftActive = document.querySelector('.social-section__posts-left.active'),
-          postRightActive = document.querySelector('.social-section__posts-right.active'),
-          postLeftAll = document.querySelectorAll('.social-section__posts-left'),
-          postRightAll = document.querySelectorAll('.social-section__posts-right'),
-          previousBtn = document.querySelector('.social-section__menu-button.current');
+    for(let i=0; i < socialBtn.length; i++){
+      let currentBtn = socialBtn[i];
+      currentBtn.onclick = function() {
+        let current = this,
+            currentAtr = current.getAttribute('data-social'),
+            postLeftActive = document.querySelector('.social-section__posts-left.active'),
+            postRightActive = document.querySelector('.social-section__posts-right.active'),
+            postLeftAll = document.querySelectorAll('.social-section__posts-left'),
+            postRightAll = document.querySelectorAll('.social-section__posts-right'),
+            previousBtn = document.querySelector('.social-section__menu-button.current');
 
-          if(!current.classList.contains('current')) {
-          toggleAppearance("SHOW", postRightActive, 'hide');
-          toggleAppearance("SHOW", postLeftActive, 'hide');
+            if(!current.classList.contains('current')) {
+            toggleAppearance("SHOW", postRightActive, 'hide');
+            toggleAppearance("SHOW", postLeftActive, 'hide');
 
-          for(let i=0; i < postLeftAll.length; i++){
-            let currentPostLeft = postLeftAll[i],
-                currentPostLeftAtr = currentPostLeft.getAttribute('data-social');
-
-            if(currentAtr == currentPostLeftAtr){
-							var nextPostLeft = currentPostLeft;
-            }
-          }
-
-          for(let i=0; i < postRightAll.length; i++){
-            let currentPostRight = postRightAll[i],
-                currentPostRightAtr = currentPostRight.getAttribute('data-social');
-
-            if(currentAtr == currentPostRightAtr){
-							var nextPostRight = currentPostRight;
-            }
-          }
-
-          toggleAppearance("HIDE", previousBtn, 'current');
-          toggleAppearance("SHOW", current, 'current');
-          setTimeout(function(){
-            toggleAppearance("HIDE", postRightActive, 'active');
-            toggleAppearance("HIDE", postLeftActive, 'active');
-            toggleAppearance("SHOW", nextPostLeft, 'active');
-            toggleAppearance("SHOW", nextPostRight, 'active');
-            }, 200
-          );
-
-          setTimeout(function(){
             for(let i=0; i < postLeftAll.length; i++){
-              let currentPostLeft = postLeftAll[i];
-              toggleAppearance("HIDE", currentPostLeft, 'hide');
+              let currentPostLeft = postLeftAll[i],
+                  currentPostLeftAtr = currentPostLeft.getAttribute('data-social');
+
+              if(currentAtr == currentPostLeftAtr){
+                var nextPostLeft = currentPostLeft;
+              }
             }
 
             for(let i=0; i < postRightAll.length; i++){
-              let currentPostRight = postRightAll[i];
-              toggleAppearance("HIDE", currentPostRight, 'hide');
+              let currentPostRight = postRightAll[i],
+                  currentPostRightAtr = currentPostRight.getAttribute('data-social');
+
+              if(currentAtr == currentPostRightAtr){
+                var nextPostRight = currentPostRight;
+              }
             }
-            }, 400
-          );
-          }
-    };
+
+            toggleAppearance("HIDE", previousBtn, 'current');
+            toggleAppearance("SHOW", current, 'current');
+            setTimeout(function(){
+              toggleAppearance("HIDE", postRightActive, 'active');
+              toggleAppearance("HIDE", postLeftActive, 'active');
+              toggleAppearance("SHOW", nextPostLeft, 'active');
+              toggleAppearance("SHOW", nextPostRight, 'active');
+              }, 200
+            );
+
+            setTimeout(function(){
+              for(let i=0; i < postLeftAll.length; i++){
+                let currentPostLeft = postLeftAll[i];
+                toggleAppearance("HIDE", currentPostLeft, 'hide');
+              }
+
+              for(let i=0; i < postRightAll.length; i++){
+                let currentPostRight = postRightAll[i];
+                toggleAppearance("HIDE", currentPostRight, 'hide');
+              }
+              }, 400
+            );
+            }
+      };
+    }
   }
 
   //flipping news
   var newsBtn = document.querySelectorAll('.news__title');
 
-  for(let i=0; i < newsBtn.length; i++){
-    let currentBtn = newsBtn[i];
-    currentBtn.onclick = function() {
-      let current = this,
-        currentContent = current.nextElementSibling,
-        previousContent = document.querySelector('.news__content-wrapper.is-open');
+  if (width < 768) {
+    let news = document.querySelectorAll('.news__content-wrapper');
 
-        if(!currentContent.classList.contains('is-open')) {
-          toggleAppearance("SHOW", currentContent, 'is-open');
-          toggleAppearance("HIDE", previousContent, 'is-open');
-        }
+    for(let i=0; i < news.length; i++){
+      toggleAppearance("SHOW", news[i], 'is-open');
+      console.log(width)
+    }
+  } else {
+    for(let i=0; i < newsBtn.length; i++){
+      let currentBtn = newsBtn[i];
+      currentBtn.onclick = function() {
+        let current = this,
+          currentContent = current.nextElementSibling,
+          previousContent = document.querySelector('.news__content-wrapper.is-open');
+
+          if(!currentContent.classList.contains('is-open')) {
+            toggleAppearance("SHOW", currentContent, 'is-open');
+            toggleAppearance("HIDE", previousContent, 'is-open');
+          }
+      }
     }
   }
 
