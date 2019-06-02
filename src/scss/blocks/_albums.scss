@@ -254,7 +254,7 @@
           left: .3rem;
           bottom: 1rem;
           height: 0;
-          width: .8rem;
+          width: 0.8rem;
           background-color: $color-accent;
           transition: height ease-out 0.5s;
         }
@@ -262,7 +262,7 @@
 
       span.animate:first-of-type {
         &::before {
-          height: 612%;
+          height: 562%;
         }
       }
 
@@ -272,7 +272,7 @@
         &::before {
           @include pseudo-el;
           left: 2.4rem;
-          top: 0.8rem;
+          top: 1.4rem;
           height: 0;
           width: .7rem;
           background-color: $color-accent;
@@ -282,7 +282,7 @@
 
       span.animate:nth-of-type(2) {
         &::before {
-          height: 162%;
+          height: 144%;
         }
       }
     }

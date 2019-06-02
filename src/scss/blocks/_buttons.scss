@@ -238,7 +238,6 @@
   transform: translateX(-5px);
 
   .line {
-    stroke: #1b2550;
 
     &--first {
     stroke-dasharray: 0px 53px 25px 70px;
@@ -250,6 +249,14 @@
 
     &--third {
       stroke-dasharray: 0px 0px 0px 100px;
+    }
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .hamburger.is-open {
+    .line {
+      stroke: #1b2550;
     }
   }
 }

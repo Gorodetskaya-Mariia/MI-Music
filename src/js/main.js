@@ -20,8 +20,7 @@
 
   //emergence of an hamburger
   window.addEventListener("scroll", () => {
-    let nav = document.querySelector(".header__nav-list"),
-      height = document.querySelector("header").offsetHeight,
+    let height = document.querySelector("header").offsetHeight,
       navToggle = document.querySelector(".button__menu"),
       navToggleActiveClass = "active";
 
@@ -114,7 +113,6 @@
 
     for(let i=0; i < news.length; i++){
       toggleAppearance("SHOW", news[i], 'is-open');
-      console.log(width)
     }
   } else {
     for(let i=0; i < newsBtn.length; i++){
@@ -164,18 +162,21 @@
         albumsSectionText = albumsSection.querySelector(".divider"),
         albumsSectionTop = albumsSection.offsetTop,
         albumsSectionTextTop = albumsSectionText.offsetTop,
-        elsToAnimate = document.querySelectorAll("span");
+        elsToAnimate = document.querySelectorAll("span"),
+        albumsSecondTop = document.querySelector(".albums__item--second").offsetTop,
+        width = document.body.clientWidth;
 
-    if ((window.pageYOffset >= (albumsSectionTop + albumsSectionTextTop))&&(window.pageYOffset <= (albumsSectionTop + albumsSectionTextTop + 800)) ) {
-      for (let i = 0; i < elsToAnimate.length; i++) {
-        elsToAnimate[i].classList.add('animate');
+    if ( ((width > 768) && (window.pageYOffset >= (albumsSectionTop + albumsSectionTextTop)) && (window.pageYOffset <= (albumsSectionTop + albumsSectionTextTop + 800))) || ((width < 769) && (window.pageYOffset >= (albumsSectionTop + albumsSecondTop + 250)) && (window.pageYOffset <= (albumsSectionTop + albumsSecondTop + 600))) ) {
+        for (let i = 0; i < elsToAnimate.length; i++) {
+          elsToAnimate[i].classList.add('animate');
+        }
+      } else {
+        for (let i = 0; i < elsToAnimate.length; i++) {
+          elsToAnimate[i].classList.remove('animate');
+        }
       }
-    } else {
-      for (let i = 0; i < elsToAnimate.length; i++) {
-        elsToAnimate[i].classList.remove('animate');
-      }
-    }
-  };
+  }
+
 })();
 
 function toggleAppearance(state, nav, activeClass) {
