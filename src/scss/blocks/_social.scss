@@ -200,6 +200,16 @@
   bottom: 100%;
 }
 
+@media screen and (max-width: $tablet) {
+  .social-section__posts-right.hide .social-section__posts-right-wrapper {
+    opacity: 0;
+  }
+
+  .social-section__posts-left.hide .social-section__posts-left-wrapper {
+    opacity: 0;
+  }
+}
+
 .social-section__posts-right.hide .social-section__posts-right-wrapper,
 .social-section__posts-left.hide .social-section__posts-left-wrapper {
   .social-section__post {

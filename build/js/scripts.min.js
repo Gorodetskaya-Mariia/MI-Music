@@ -37,146 +37,161 @@
   });
 
   //flipping social blocks
-  var socialBtn = document.querySelectorAll('.social-section__menu-button'),
-      socialPosts = document.querySelector('.social-section__posts'),
-      socialPostsHeight = document.querySelector('.social-section__posts-right-wrapper').clientHeight,
-      width = document.body.clientWidth;
+  var socialBtn = document.querySelectorAll(".social-section__menu-button"),
+    socialPosts = document.querySelector(".social-section__posts"),
+    socialPostsHeight = document.querySelector(
+      ".social-section__posts-right-wrapper"
+    ).clientHeight,
+    width = document.body.clientWidth;
 
-  if (width > 768) {
-    socialPosts.style.height = socialPostsHeight + 'px';
+  if (width > 768) socialPosts.style.height = socialPostsHeight + "px";
 
-    for(let i=0; i < socialBtn.length; i++){
-      let currentBtn = socialBtn[i];
-      currentBtn.onclick = function() {
-        let current = this,
-            currentAtr = current.getAttribute('data-social'),
-            postLeftActive = document.querySelector('.social-section__posts-left.active'),
-            postRightActive = document.querySelector('.social-section__posts-right.active'),
-            postLeftAll = document.querySelectorAll('.social-section__posts-left'),
-            postRightAll = document.querySelectorAll('.social-section__posts-right'),
-            previousBtn = document.querySelector('.social-section__menu-button.current');
+  for (let i = 0; i < socialBtn.length; i++) {
+    let currentBtn = socialBtn[i];
+    currentBtn.onclick = function() {
+      let current = this,
+        currentAtr = current.getAttribute("data-social"),
+        postLeftActive = document.querySelector(
+          ".social-section__posts-left.active"
+        ),
+        postRightActive = document.querySelector(
+          ".social-section__posts-right.active"
+        ),
+        postLeftAll = document.querySelectorAll(".social-section__posts-left"),
+        postRightAll = document.querySelectorAll(
+          ".social-section__posts-right"
+        ),
+        previousBtn = document.querySelector(
+          ".social-section__menu-button.current"
+        );
 
-            if(!current.classList.contains('current')) {
-            toggleAppearance("SHOW", postRightActive, 'hide');
-            toggleAppearance("SHOW", postLeftActive, 'hide');
+      if (!current.classList.contains("current")) {
+        toggleAppearance("SHOW", postRightActive, "hide");
+        toggleAppearance("SHOW", postLeftActive, "hide");
 
-            for(let i=0; i < postLeftAll.length; i++){
-              let currentPostLeft = postLeftAll[i],
-                  currentPostLeftAtr = currentPostLeft.getAttribute('data-social');
+        for (let i = 0; i < postLeftAll.length; i++) {
+          let currentPostLeft = postLeftAll[i],
+            currentPostLeftAtr = currentPostLeft.getAttribute("data-social");
 
-              if(currentAtr == currentPostLeftAtr){
-                var nextPostLeft = currentPostLeft;
-              }
-            }
+          if (currentAtr == currentPostLeftAtr) {
+            var nextPostLeft = currentPostLeft;
+          }
+        }
 
-            for(let i=0; i < postRightAll.length; i++){
-              let currentPostRight = postRightAll[i],
-                  currentPostRightAtr = currentPostRight.getAttribute('data-social');
+        for (let i = 0; i < postRightAll.length; i++) {
+          let currentPostRight = postRightAll[i],
+            currentPostRightAtr = currentPostRight.getAttribute("data-social");
 
-              if(currentAtr == currentPostRightAtr){
-                var nextPostRight = currentPostRight;
-              }
-            }
+          if (currentAtr == currentPostRightAtr) {
+            var nextPostRight = currentPostRight;
+          }
+        }
 
-            toggleAppearance("HIDE", previousBtn, 'current');
-            toggleAppearance("SHOW", current, 'current');
-            setTimeout(function(){
-              toggleAppearance("HIDE", postRightActive, 'active');
-              toggleAppearance("HIDE", postLeftActive, 'active');
-              toggleAppearance("SHOW", nextPostLeft, 'active');
-              toggleAppearance("SHOW", nextPostRight, 'active');
-              }, 200
-            );
+        toggleAppearance("HIDE", previousBtn, "current");
+        toggleAppearance("SHOW", current, "current");
+        setTimeout(function() {
+          toggleAppearance("HIDE", postRightActive, "active");
+          toggleAppearance("HIDE", postLeftActive, "active");
+          toggleAppearance("SHOW", nextPostLeft, "active");
+          toggleAppearance("SHOW", nextPostRight, "active");
+        }, 200);
 
-            setTimeout(function(){
-              for(let i=0; i < postLeftAll.length; i++){
-                let currentPostLeft = postLeftAll[i];
-                toggleAppearance("HIDE", currentPostLeft, 'hide');
-              }
+        setTimeout(function() {
+          for (let i = 0; i < postLeftAll.length; i++) {
+            let currentPostLeft = postLeftAll[i];
+            toggleAppearance("HIDE", currentPostLeft, "hide");
+          }
 
-              for(let i=0; i < postRightAll.length; i++){
-                let currentPostRight = postRightAll[i];
-                toggleAppearance("HIDE", currentPostRight, 'hide');
-              }
-              }, 400
-            );
-            }
-      };
-    }
+          for (let i = 0; i < postRightAll.length; i++) {
+            let currentPostRight = postRightAll[i];
+            toggleAppearance("HIDE", currentPostRight, "hide");
+          }
+        }, 400);
+      }
+    };
   }
 
   //flipping news
-  var newsBtn = document.querySelectorAll('.news__title');
+  var newsBtn = document.querySelectorAll(".news__title");
 
   if (width < 768) {
-    let news = document.querySelectorAll('.news__content-wrapper');
+    let news = document.querySelectorAll(".news__content-wrapper");
 
-    for(let i=0; i < news.length; i++){
-      toggleAppearance("SHOW", news[i], 'is-open');
+    for (let i = 0; i < news.length; i++) {
+      toggleAppearance("SHOW", news[i], "is-open");
     }
   } else {
-    for(let i=0; i < newsBtn.length; i++){
+    for (let i = 0; i < newsBtn.length; i++) {
       let currentBtn = newsBtn[i];
       currentBtn.onclick = function() {
         let current = this,
           currentContent = current.nextElementSibling,
-          previousContent = document.querySelector('.news__content-wrapper.is-open');
+          previousContent = document.querySelector(
+            ".news__content-wrapper.is-open"
+          );
 
-          if(!currentContent.classList.contains('is-open')) {
-            toggleAppearance("SHOW", currentContent, 'is-open');
-            toggleAppearance("HIDE", previousContent, 'is-open');
-          }
-      }
+        if (!currentContent.classList.contains("is-open")) {
+          toggleAppearance("SHOW", currentContent, "is-open");
+          toggleAppearance("HIDE", previousContent, "is-open");
+        }
+      };
     }
   }
 
   //validate form
   let inputs = document.querySelectorAll("form .form__input");
   for (let i = 0; i < inputs.length; i++) {
-    inputs[i].onchange = function(){
-      toggleAppearance("SHOW", this, 'changed');
-    }
+    inputs[i].onchange = function() {
+      toggleAppearance("SHOW", this, "changed");
+    };
   }
 
-	document.querySelector("form").onsubmit = function(e) {
-		let error = false;
+  document.querySelector("form").onsubmit = function(e) {
+    let error = false;
 
-		for (let i = 0; i < inputs.length; i++) {
-     	if (inputs[i].value === "") {
-				inputs[i].classList.add("error");
-				error = true;
-			} else {
-				inputs[i].classList.remove("error");
-			}
-		}
+    for (let i = 0; i < inputs.length; i++) {
+      if (inputs[i].value === "") {
+        inputs[i].classList.add("error");
+        error = true;
+      } else {
+        inputs[i].classList.remove("error");
+      }
+    }
 
-		if (error) {
-			e.preventDefault();
-		}
+    if (error) {
+      e.preventDefault();
+    }
   };
 })();
 //albums animation
 (function() {
   document.onscroll = function(e) {
     let albumsSection = document.querySelector(".albums"),
-        albumsSectionText = albumsSection.querySelector(".divider"),
-        albumsSectionTop = albumsSection.offsetTop,
-        albumsSectionTextTop = albumsSectionText.offsetTop,
-        elsToAnimate = document.querySelectorAll("span"),
-        albumsSecondTop = document.querySelector(".albums__item--second").offsetTop,
-        width = document.body.clientWidth;
+      albumsSectionText = albumsSection.querySelector(".divider"),
+      albumsSectionTop = albumsSection.offsetTop,
+      albumsSectionTextTop = albumsSectionText.offsetTop,
+      elsToAnimate = document.querySelectorAll("span"),
+      albumsSecondTop = document.querySelector(".albums__item--second")
+        .offsetTop,
+      width = document.body.clientWidth;
 
-    if ( ((width > 768) && (window.pageYOffset >= (albumsSectionTop + albumsSectionTextTop)) && (window.pageYOffset <= (albumsSectionTop + albumsSectionTextTop + 800))) || ((width < 769) && (window.pageYOffset >= (albumsSectionTop + albumsSecondTop + 250)) && (window.pageYOffset <= (albumsSectionTop + albumsSecondTop + 600))) ) {
-        for (let i = 0; i < elsToAnimate.length; i++) {
-          elsToAnimate[i].classList.add('animate');
-        }
-      } else {
-        for (let i = 0; i < elsToAnimate.length; i++) {
-          elsToAnimate[i].classList.remove('animate');
-        }
+    if (
+      (width > 768 &&
+        window.pageYOffset >= albumsSectionTop + albumsSectionTextTop &&
+        window.pageYOffset <= albumsSectionTop + albumsSectionTextTop + 800) ||
+      (width < 769 &&
+        window.pageYOffset >= albumsSectionTop + albumsSecondTop + 250 &&
+        window.pageYOffset <= albumsSectionTop + albumsSecondTop + 600)
+    ) {
+      for (let i = 0; i < elsToAnimate.length; i++) {
+        elsToAnimate[i].classList.add("animate");
       }
-  }
-
+    } else {
+      for (let i = 0; i < elsToAnimate.length; i++) {
+        elsToAnimate[i].classList.remove("animate");
+      }
+    }
+  };
 })();
 
 function toggleAppearance(state, nav, activeClass) {
