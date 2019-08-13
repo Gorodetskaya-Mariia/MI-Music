@@ -31,6 +31,7 @@ decorative circles.
 - When you leaf through posts from social media («Being Social») or click on titles of news («News») you can see animations which were achieved through adding classes with different animations to active elements.
 - «Smart» Iframe is a method which was used to add videos from «youtube». Video are not located on page, only urls to them in a tag «a». So, by clicking on every image in a section «Listen to MIMUSIC» an «iframe» is created in DOM with url which was stored in the tag «a».
 - Simple validation in «Sign Up» section was done by small script and properties of tags from HTML5.
+- CSS Grid Layout was used to display popular songs in the section «Listen to MIMUSIC».
 - Responsive Web Design is achieved through flexboxes, grids and media expressions.
 - About Gulp taskrunner: A local Browsersync server with auto-refresh is used for developing process. Gulp is subscribed to changes in *.js / *.sass / *.html files and if any of them changes, it launches pipe tasks that perform optimizations, transpile from .sass to .css, minify and concatenate scripts and style sheets. In the prod .css styles, the necessary vendor prefixes are automatically applied.
 <!-- - Every image is a responsive image — image that works well on devices with widely differing screen sizes and resolutions. This way the browser can choose the image that best fits the current view and/or device. I used <picture> element to add more flexibility when specifying image resources.  -->
