@@ -177,6 +177,11 @@
         width: 89%;
         height: 89%;
       }
+
+      svg {
+        width: 7rem;
+        margin-top: 0;
+      }
     }
   }
 }
@@ -185,6 +190,7 @@
 .sold {
   color: #fb516e;
   border-color: #2b314b;
+  cursor: not-allowed;
 
   &:hover::after {
     display: none;
@@ -192,6 +198,10 @@
 
   &:hover {
     color: #fb516e;
+  }
+
+  &:focus {
+    outline: none;
   }
 }
 

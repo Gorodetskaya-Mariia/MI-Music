@@ -51,6 +51,10 @@
     letter-spacing: 0.21rem;
     text-transform: uppercase;
   }
+
+  &--social {
+    margin-bottom: 1px;
+  }
 }
 
 @media screen and (max-width: $desktop) {
@@ -86,6 +90,15 @@
   }
 }
 
+@media screen and (min-width: $tablet + 1) and (max-width: $desktop) {
+  .menu__list--nav {
+    margin-right: 0;
+    margin-bottom: 2rem;
+    padding-top: 1.4rem;
+    padding-bottom: 1.2rem;
+  }
+}
+
 @media screen and (max-width: $tablet) {
   .menu__list--social {
     padding-right: $mobile-padding;
@@ -106,12 +119,10 @@
   }
 }
 
-@media screen and (min-width: $tablet + 1) and (max-width: $desktop) {
-  .menu__list--nav {
-    margin-right: 0;
-    margin-bottom: 2rem;
-    padding-top: 1.4rem;
-    padding-bottom: 1.2rem;
+@media screen and (max-width: 359px) {
+  .menu__list--footer {
+    overflow: hidden;
+    width: 100vw;
   }
 }
 
@@ -170,12 +181,19 @@
   }
 
   .menu__item--nav {
-    margin: 1rem 1rem 2rem 0;
+    margin: 1rem 2rem 2rem 0;
+  }
+}
+
+@media screen and (max-width: 359px) {
+  .menu__item--footer {
+    margin-right: 0.6rem;
   }
 }
 
 .menu__link {
   position: relative;
+  display: block;
   text-decoration: none;
 
   &--facebook {
@@ -204,6 +222,7 @@
 
 .menu__item.current .menu__link {
   border: 0;
+  cursor: not-allowed;
 
   &:hover::before,
   &:hover::after {

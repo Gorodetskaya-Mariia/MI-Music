@@ -371,6 +371,14 @@
   z-index: -1;
 }
 
+@media screen and (min-width: $tablet + 1) and (max-width: $desktop) {
+  .albums__decor,
+  .albums .wrapper::before,
+  .albums .wrapper::after {
+    display: none;
+  }
+}
+
 @media screen and (max-width: $tablet) {
   .albums {
     padding-bottom: 27rem;

@@ -5,7 +5,7 @@
 .introduction {
   position: relative;
   padding-top: 16rem;
-  padding-bottom: 44rem;
+  padding-bottom: 36rem;
   font-family: $font-bold;
   font-weight: 700;
   background-color: $header-bg;
@@ -96,8 +96,8 @@
 
 @media screen and (min-width: $tablet + 1) and (max-width: $desktop) {
   .introduction {
-    padding-top: 15rem;
-    padding-bottom: 13rem;
+    padding-top: 10rem;
+    padding-bottom: 28rem;
 
     &::before {
       bottom: -16.9rem;
@@ -117,6 +117,10 @@
     &__text {
      font-size: 2.6rem;
      margin-bottom: 3rem;
+    }
+
+    .wrapper {
+      width: 630px;
     }
   }
 }

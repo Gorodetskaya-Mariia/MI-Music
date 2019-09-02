@@ -172,6 +172,17 @@
   }
 }
 
+@media screen and (max-width: 359px) {
+  .social-section__menu-list {
+    flex-wrap: wrap;
+  }
+
+  .social-section__posts-left,
+  .social-section__posts-right {
+    width: 34rem;
+  }
+}
+
 .social-section__posts-right .social-section__post:first-of-type {
   margin-top: 11rem;
 }
