@@ -1,12 +1,13 @@
 (function() {
   let menuBtn = document.querySelector(".button__menu"),
-    mainNav = document.querySelector(".menu__list--nav"),
+    mainNav = document.querySelector(".menu__list--nav-add"),
     hamburger = document.querySelector(".hamburger"),
-    widthHeaderMenu = mainNav.clientWidth;
+    widthHeaderMenu =  document.querySelector(".menu__list--nav").clientWidth;
 
   mainNav.style.right = -(widthHeaderMenu + 130) + "px";
 
-  menuBtn.onclick = function() {
+  menuBtn.onclick = function(e) {
+    e.stopPropagation();
     menuBtn.classList.toggle("is-open");
     hamburger.classList.toggle("is-open");
     mainNav.classList.toggle("is-open");
@@ -21,30 +22,36 @@
   //emergence of an hamburger
   window.addEventListener("scroll", () => {
     let height = document.querySelector("header").offsetHeight,
-      navToggle = document.querySelector(".button__menu"),
-      navToggleActiveClass = "active";
+        navToggleActiveClass = "active";
 
     if (window.pageYOffset >= height) {
-      toggleAppearance("SHOW", navToggle, navToggleActiveClass);
+      toggleAppearance("SHOW", menuBtn, navToggleActiveClass);
       toggleAppearance("SHOW", mainNav, navToggleActiveClass);
     } else {
-      toggleAppearance("HIDE", navToggle, navToggleActiveClass);
-      toggleAppearance("HIDE", navToggle, "is-open");
+      toggleAppearance("HIDE", menuBtn, navToggleActiveClass);
+      toggleAppearance("HIDE", menuBtn, "is-open");
       toggleAppearance("HIDE", mainNav, navToggleActiveClass);
       toggleAppearance("HIDE", mainNav, "is-open");
       toggleAppearance("HIDE", hamburger, "is-open");
+    }
+  });
+  
+  //click outside menu
+  window.addEventListener("click", (event) => {
+    if (menuBtn.classList.contains("is-open")&& !event.target.classList.contains("menu__list--nav-add")) {
+      toggleAppearance("HIDE", menuBtn, "is-open");
+      toggleAppearance("HIDE", mainNav, "is-open");
+      toggleAppearance("HIDE", hamburger, "is-open");
+      mainNav.style.right = -(widthHeaderMenu + 130) + "px";
     }
   });
 
   //flipping social blocks
   var socialBtn = document.querySelectorAll(".social-section__menu-button"),
     socialPosts = document.querySelector(".social-section__posts"),
-    socialPostsHeight = document.querySelector(
-      ".social-section__posts-right-wrapper"
-    ).clientHeight,
     width = document.body.clientWidth;
-
-  if (width > 768) socialPosts.style.height = socialPostsHeight + "px";
+    
+    socialSettings(width);
 
   for (let i = 0; i < socialBtn.length; i++) {
     let currentBtn = socialBtn[i];
@@ -112,15 +119,8 @@
   }
 
   //flipping news
-  var newsBtn = document.querySelectorAll(".news__title");
+  let newsBtn = document.querySelectorAll(".news__title");
 
-  if (width < 768) {
-    let news = document.querySelectorAll(".news__content-wrapper");
-
-    for (let i = 0; i < news.length; i++) {
-      toggleAppearance("SHOW", news[i], "is-open");
-    }
-  } else {
     for (let i = 0; i < newsBtn.length; i++) {
       let currentBtn = newsBtn[i];
       currentBtn.onclick = function() {
@@ -128,15 +128,19 @@
           currentContent = current.nextElementSibling,
           previousContent = document.querySelector(
             ".news__content-wrapper.is-open"
-          );
+          ),
+            previousTitle = document.querySelector(
+                ".news__title.active"
+            );
 
         if (!currentContent.classList.contains("is-open")) {
           toggleAppearance("SHOW", currentContent, "is-open");
+          toggleAppearance("SHOW", currentBtn, "active");
           toggleAppearance("HIDE", previousContent, "is-open");
+          toggleAppearance("HIDE", previousTitle, "active");
         }
       };
     }
-  }
 
   //validate form
   let inputs = document.querySelectorAll("form .form__input");
@@ -162,6 +166,21 @@
       e.preventDefault();
     }
   };
+    
+    window.addEventListener("resize", () => {
+        width = document.body.clientWidth;
+        socialSettings(width);
+    });
+    
+    function socialSettings(width) {
+        if (width > 768) {
+            socialPosts.style.height = "auto";
+            socialPosts.style.height = document.querySelector(".social-section__posts-right-wrapper").clientHeight + "px";
+        } else {
+            socialPosts.style.height = "auto";
+            socialPosts.style.height = socialPosts.clientHeight + "px";
+        }
+    }
 })();
 //albums animation
 (function() {

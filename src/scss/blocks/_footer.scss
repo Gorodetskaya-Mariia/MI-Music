@@ -79,3 +79,9 @@ footer {
     margin-right: 1rem;
   }
 }
+
+@media screen and (max-width: 359px) {
+  .menu__item--footer {
+    margin-right: 0.6rem;
+  }
+}

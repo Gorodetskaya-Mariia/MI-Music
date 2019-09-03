@@ -118,28 +118,69 @@
   }
 }
 
-@media screen and (max-width: $tablet) {
+@media screen and (max-width: $desktop) {
   .social-section {
     padding-top: 14rem;
     padding-bottom: 30rem;
     background-image: none;
-    clip-path: polygon(0 94%, 100% 88%, 100% 6%, 0 0);
     background: linear-gradient(120deg, #fd5960, #101783);
-
+  
     .wrapper {
       padding-top: 0;
       flex-direction: column;
     }
+  
+    h2 {
+      padding-top: 0;
+      margin-bottom: 2rem;
+    
+      br {
+        display: none;
+      }
+    }
+  
+    &__menu-list {
+      flex-direction: row;
+    }
+  
+    &__menu-button.current {
+      color: #032c9e;
+    }
+  }
+}
+
+@media screen and (min-width: $tablet + 1) and (max-width: $desktop) {
+  .social-section {
+    &__menu-list {
+      margin-bottom: 3rem;
+    }
+    
+    &__menu-button {
+      font-size: 1.7rem;
+    }
+  
+    &__posts {
+      justify-content: center;
+    }
+  
+    &__posts-left {
+           margin-right: 0;
+         }
+  
+    &__posts-left.active {
+      margin-right: 3rem;
+    }
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .social-section {
+    clip-path: polygon(0 94%, 100% 88%, 100% 6%, 0 0);
 
     h2 {
       font-size: 4rem;
       line-height: 1.9rem;
-      padding-top: 0;
       margin-bottom: 2rem;
-
-      br {
-        display: none;
-      }
     }
 
     &__posts {
@@ -152,6 +193,7 @@
 
       &.active {
         margin: 0 auto;
+        height: auto;
       }
     }
 
@@ -161,13 +203,8 @@
     }
 
     &__menu-list {
-      flex-direction: row;
       width: 107%;
       overflow: auto;
-    }
-
-    &__menu-button.current {
-      color: #032c9e;
     }
   }
 }
@@ -176,9 +213,9 @@
   .social-section__menu-list {
     flex-wrap: wrap;
   }
-
-  .social-section__posts-left,
-  .social-section__posts-right {
+  
+  .social-section__posts-left.active,
+  .social-section__posts-right.active {
     width: 34rem;
   }
 }
