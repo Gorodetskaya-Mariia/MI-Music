@@ -62,7 +62,7 @@ header {
 }
 
 @media screen and (min-width: $tablet + 1) and (max-width: $desktop) {
-  .logo__wrapper {
+  header .logo__wrapper {
     align-self: baseline;
   }
 }

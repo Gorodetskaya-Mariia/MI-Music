@@ -4,10 +4,15 @@
 
 @media screen and (max-width: $desktop) {
   .menu {
-    margin-left: auto;
     flex-direction: column;
     overflow-x: auto;
     overflow-y: hidden;
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .menu {
+    margin-left: auto;
   }
 }
 

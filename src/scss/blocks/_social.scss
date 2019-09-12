@@ -60,6 +60,8 @@
 
   &__posts {
     display: flex;
+    height: 955px;
+    overflow: hidden;
   }
 
   &__posts-left,
@@ -161,6 +163,7 @@
   
     &__posts {
       justify-content: center;
+      height: 784px;
     }
   
     &__posts-left {
@@ -185,6 +188,7 @@
 
     &__posts {
       flex-direction: column;
+      height: 1436px;
     }
 
     &__posts-left,

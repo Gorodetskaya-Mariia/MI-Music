@@ -380,6 +380,8 @@
     }
   
     &__title--fourth {
+      width: 210px;
+      margin: 0 auto;
       clip-path: url(#svgTextPath-mobile);
     }
   }
@@ -408,6 +410,7 @@
 
     &__text {
       margin-bottom: 5rem;
+      margin-left: 12px;
     }
 
     &__item {

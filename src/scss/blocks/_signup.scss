@@ -66,7 +66,7 @@
     padding-top: 14rem;
     padding-bottom: 31rem;
     background-size: contain;
-    background-position-y: 42.4rem;
+    background-position-y: 44.4rem;
 
     h2 {
       font-size: 4rem;
@@ -148,7 +148,7 @@
 .form__input:hover ~ .form__label,
 .form__input:focus ~ .form__label,
 .form__input:focus ~ .form__label,
-.form__input.changed ~ .form__label, {
+.form__input.changed ~ .form__label {
   display: block;
   top: -2rem;
   transform: scale(0.6);

@@ -2,7 +2,8 @@
   let menuBtn = document.querySelector(".button__menu"),
     mainNav = document.querySelector(".menu__list--nav-add"),
     hamburger = document.querySelector(".hamburger"),
-    widthHeaderMenu =  document.querySelector(".menu__list--nav").clientWidth;
+    widthHeaderMenu =  document.querySelector(".menu__list--nav").clientWidth,
+    navToggleActiveClass = "active";
 
   mainNav.style.right = -(widthHeaderMenu + 130) + "px";
 
@@ -21,19 +22,9 @@
 
   //emergence of an hamburger
   window.addEventListener("scroll", () => {
-    let height = document.querySelector("header").offsetHeight,
-        navToggleActiveClass = "active";
-
-    if (window.pageYOffset >= height) {
-      toggleAppearance("SHOW", menuBtn, navToggleActiveClass);
-      toggleAppearance("SHOW", mainNav, navToggleActiveClass);
-    } else {
-      toggleAppearance("HIDE", menuBtn, navToggleActiveClass);
-      toggleAppearance("HIDE", menuBtn, "is-open");
-      toggleAppearance("HIDE", mainNav, navToggleActiveClass);
-      toggleAppearance("HIDE", mainNav, "is-open");
-      toggleAppearance("HIDE", hamburger, "is-open");
-    }
+      let height = document.querySelector("header").offsetHeight;
+    
+      emergeBurger(height);
   });
   
   //click outside menu
@@ -47,12 +38,8 @@
   });
 
   //flipping social blocks
-  var socialBtn = document.querySelectorAll(".social-section__menu-button"),
-    socialPosts = document.querySelector(".social-section__posts"),
-    width = document.body.clientWidth;
-    
-    socialSettings(width);
-
+  var socialBtn = document.querySelectorAll(".social-section__menu-button");
+  
   for (let i = 0; i < socialBtn.length; i++) {
     let currentBtn = socialBtn[i];
     currentBtn.onclick = function() {
@@ -120,27 +107,26 @@
 
   //flipping news
   let newsBtn = document.querySelectorAll(".news__title");
-
-    for (let i = 0; i < newsBtn.length; i++) {
-      let currentBtn = newsBtn[i];
-      currentBtn.onclick = function() {
-        let current = this,
-          currentContent = current.nextElementSibling,
-          previousContent = document.querySelector(
-            ".news__content-wrapper.is-open"
-          ),
-            previousTitle = document.querySelector(
-                ".news__title.active"
-            );
-
+  
+  for (let i = 0; i < newsBtn.length; i++) {
+     let currentBtn = newsBtn[i];
+     currentBtn.onclick = function() {
+       let current = this,
+         currentContent = current.nextElementSibling,
+         previousContent = document.querySelector(
+           ".news__content-wrapper.is-open"
+         ),
+           previousTitle = document.querySelector(
+               ".news__title.active"
+           );
         if (!currentContent.classList.contains("is-open")) {
-          toggleAppearance("SHOW", currentContent, "is-open");
-          toggleAppearance("SHOW", currentBtn, "active");
-          toggleAppearance("HIDE", previousContent, "is-open");
-          toggleAppearance("HIDE", previousTitle, "active");
-        }
-      };
-    }
+         toggleAppearance("SHOW", currentContent, "is-open");
+         toggleAppearance("SHOW", currentBtn, "active");
+         toggleAppearance("HIDE", previousContent, "is-open");
+         toggleAppearance("HIDE", previousTitle, "active");
+       }
+     };
+  }
 
   //validate form
   let inputs = document.querySelectorAll("form .form__input");
@@ -165,23 +151,27 @@
     if (error) {
       e.preventDefault();
     }
-  };
+  }
+  
+  //will be done after F5
+    let height = document.querySelector("header").offsetHeight;
+    emergeBurger(height);
     
-    window.addEventListener("resize", () => {
-        width = document.body.clientWidth;
-        socialSettings(width);
-    });
-    
-    function socialSettings(width) {
-        if (width > 768) {
-            socialPosts.style.height = "auto";
-            socialPosts.style.height = document.querySelector(".social-section__posts-right-wrapper").clientHeight + "px";
+    function emergeBurger(height) {
+        
+        if (window.pageYOffset >= height) {
+            toggleAppearance("SHOW", menuBtn, navToggleActiveClass);
+            toggleAppearance("SHOW", mainNav, navToggleActiveClass);
         } else {
-            socialPosts.style.height = "auto";
-            socialPosts.style.height = socialPosts.clientHeight + "px";
+            toggleAppearance("HIDE", menuBtn, navToggleActiveClass);
+            toggleAppearance("HIDE", menuBtn, "is-open");
+            toggleAppearance("HIDE", mainNav, navToggleActiveClass);
+            toggleAppearance("HIDE", mainNav, "is-open");
+            toggleAppearance("HIDE", hamburger, "is-open");
         }
     }
 })();
+
 //albums animation
 (function() {
   document.onscroll = function(e) {
@@ -213,6 +203,27 @@
   };
 })();
 
+(function() {
+    if ("loading" in HTMLImageElement.prototype) {
+        var lazyEls = document.querySelectorAll("[loading=lazy]");
+        lazyEls.forEach(function(lazyEl) {
+            lazyEl.setAttribute(
+                "src",
+                lazyEl.getAttribute("data-src")
+            );
+        });
+    } else {
+        // Dynamically include vanilla-lazyload(a lazy loading library)
+        var script = document.createElement("script");
+        script.async = true;
+        script.src =
+            "https://cdn.jsdelivr.net/npm/vanilla-lazyload@12.0.0/dist/lazyload.min.js";
+        window.lazyLoadOptions = {
+            elements_selector: "[loading=lazy]"
+        };
+        document.body.appendChild(script);
+    }
+})();
 function toggleAppearance(state, nav, activeClass) {
   switch (state) {
     case "SHOW":

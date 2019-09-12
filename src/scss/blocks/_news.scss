@@ -30,13 +30,18 @@
   }
 }
 
+@media screen and (max-width: $desktop) {
+  .news-section {
+    clip-path: url(#smallwave);
+  }
+}
+
 @media screen and (max-width: $tablet) {
   .news-section {
     margin-top: -29rem;
     padding-top: 18.4rem;
     padding-bottom: 14.5rem;
     background-image: none;
-    clip-path: url(#smallwave);
 
     .wrapper {
       padding-left: 2.5rem;
@@ -90,6 +95,7 @@
 
   &__link-view-all {
     position: relative;
+    display: block;
     width: 56rem;
     padding: 5rem 7rem;
     font-family: $font-medium;
@@ -209,6 +215,31 @@
   }
 }
 
+@media screen and (max-width: $desktop) {
+  .news__decor {
+    display: none;
+  }
+  
+  .news__link-view-all {
+    padding: 3rem;
+    margin-bottom: 2rem;
+    height: 63px;
+    background-color: transparent;
+  }
+}
+
+@media screen and (min-width: $tablet + 1) and (max-width: $desktop) {
+  .news {
+    &-section {
+      padding-top: 28rem;
+    }
+    
+    &__list {
+      margin-bottom: 6rem;
+    }
+  }
+}
+
 @media screen and (max-width: $tablet) {
   .news {
     flex-direction: column;
@@ -247,10 +278,6 @@
       border-radius: 0;
     }
 
-    &__decor {
-      display: none;
-    }
-
     &__content {
       
       &-current {
@@ -277,11 +304,7 @@
       }
     }
     
-      &__link-view-all {
-      padding: 3rem;
-      margin-bottom: 2rem;
-      background-color: transparent;
-
+    &__link-view-all {
       &::before {
         left: 40.5%;
       }
