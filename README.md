@@ -13,7 +13,7 @@ On the Home page you can find information about live dates, watch videos of popu
 	* «Smart» Iframe
 	* Form validation
 	* Responsive Web Design approach
-	* Responsive Images, lazy loading
+	* Responsive Images, lazy loading, Vanilla-lazyload.js
 
 ## What is done:
 ### Pages implemented:
@@ -22,7 +22,7 @@ On the Home page you can find information about live dates, watch videos of popu
 ### Project overview:
 
 - CSS Animations were used for a beautiful animation not only buttons, but also social icons, menu items, input labels («Sign Up» section).
-- SVG Animation of a button for openning and closing a menu is achieved by changing the stroke-dasharray parameter using keyframes so the paths of svg transform.
+- SVG Animation of a button for opening and closing a menu is achieved by changing the stroke-dasharray parameter using keyframes so the paths of SVG transform.
 - Clip-path CSS property was used not only to create different edge angles butting up against one another in sections like «Header» and «Being Social», but also to create 
 decorative circles.
 - The SVG «clipPath» element helps to use the «path» element as a clipping path. The paths of SVG were wrapped into «clipPath» with «id». The id was used to connect SVG and a section where I want to use «clipPath» (sections «Live Dates» and «News»).
@@ -33,5 +33,5 @@ decorative circles.
 - CSS Grid Layout was used to display popular songs in the section «Listen to MIMUSIC».
 - Responsive Web Design is achieved through flexboxes, grids and media expressions.
 - About Gulp taskrunner: A local Browsersync server with auto-refresh is used for developing process. Gulp is subscribed to changes in *.js / *.sass / *.html files and if any of them changes, it launches pipe tasks that perform optimizations, transpile from .sass to .css, minify and concatenate scripts and style sheets. In the prod .css styles, the necessary vendor prefixes are automatically applied.
-- A loading attribute of img was used to avoid loading offscreen images on the page. The loading attribute allows a browser to defer loading offscreen images until users scroll near them. If loading is not supported, a fallback (vanilla-lazyload) is loaded and initiated it. An attribute loading="lazy" is a way to indicate to vanilla-lazyload which images should be lazily-loaded.
+- A loading attribute of «img» was used to avoid loading offscreen images on the page. The loading attribute allows a browser to defer loading offscreen images until users scroll near them. If loading is not supported, a fallback («vanilla-lazyload» - a lazy loading library) is loaded and initiated it. An attribute loading="lazy" is a way to indicate to «vanilla-lazyload» which images should be lazily-loaded.
 <!-- - Every image is a responsive image — image that works well on devices with widely differing screen sizes and resolutions. This way the browser can choose the image that best fits the current view and/or device. I used <picture> element to add more flexibility when specifying image resources.  -->
