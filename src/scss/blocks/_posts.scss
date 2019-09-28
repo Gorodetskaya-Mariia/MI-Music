@@ -1,4 +1,3 @@
-
 .post {
 
   &__wrapper {
@@ -25,7 +24,6 @@
 
   &__link {
     color: #65db7a;
-    text-decoration: none;
   }
 
   &__link,
@@ -35,14 +33,10 @@
   }
 
   &__resource {
-    display: flex;
     padding-top: 2rem;
   }
 
   &__resource-link {
-    position: relative;
-    display: flex;
-    align-items: center;
     padding: 1rem;
     margin-right: 2rem;
     border-radius: 2px;
@@ -109,7 +103,6 @@
 
   &__resource-data {
     margin-bottom: 0.8rem;
-    text-transform: uppercase;
   }
 
   &__resource-date {

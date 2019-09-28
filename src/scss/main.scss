@@ -1,6 +1,7 @@
 @import "vars";
 @import "mixins";
 @import "fonts";
+@import "library";
 
 * {
   box-sizing: border-box;
@@ -44,7 +45,6 @@ h1, h2, h3, p, ul {
 }
 
 .divider {
-  display: flex;
   width: 148px;
   height: 0.4rem;
   margin-bottom: 13.5rem;

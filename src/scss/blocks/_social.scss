@@ -3,7 +3,6 @@
 @import "fonts";
 
 .social-section {
-  position: relative;
   background-color: #000000;
   padding-top: 20rem;
   padding-bottom: 37rem;
@@ -18,8 +17,6 @@
   z-index: 3;
 
   .wrapper {
-    display: flex;
-    justify-content: space-between;
     padding-top: 34rem;
   }
 
@@ -34,23 +31,15 @@
     margin-bottom: 3.3rem;
   }
 
-  &__menu-list {
-    display: flex;
-    flex-direction: column;
-  }
-
   &__menu-button {
-    position: relative;
     margin-bottom: 2.2rem;
     font-family: $font-bold;
     font-weight: 700;
     font-size: 1.4rem;
     letter-spacing: 0.028rem;
-    text-transform: uppercase;
     border-right: 0;
     border-left: 0;
     background-color: transparent;
-    cursor: pointer;
     transition: color 0.3s;
 
     &.current {
@@ -59,16 +48,12 @@
   }
 
   &__posts {
-    display: flex;
     height: 955px;
     overflow: hidden;
   }
 
   &__posts-left,
   &__posts-right {
-    position: relative;
-    display: flex;
-    flex-direction: column;
     width: 0;
     height: 0;
     visibility: hidden;
@@ -77,7 +62,6 @@
 
     &-wrapper {
       @include pseudo-el;
-      width: 100%;
     }
 
     &.active {
@@ -109,7 +93,6 @@
   }
 
   &__post {
-    height: 100%;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 7px;
     transition: height 0.3s;
@@ -126,25 +109,25 @@
     padding-bottom: 30rem;
     background-image: none;
     background: linear-gradient(120deg, #fd5960, #101783);
-  
+
     .wrapper {
       padding-top: 0;
       flex-direction: column;
     }
-  
+
     h2 {
       padding-top: 0;
       margin-bottom: 2rem;
-    
+
       br {
         display: none;
       }
     }
-  
+
     &__menu-list {
       flex-direction: row;
     }
-  
+
     &__menu-button.current {
       color: #032c9e;
     }
@@ -156,20 +139,20 @@
     &__menu-list {
       margin-bottom: 3rem;
     }
-    
+
     &__menu-button {
       font-size: 1.7rem;
     }
-  
+
     &__posts {
       justify-content: center;
       height: 784px;
     }
-  
+
     &__posts-left {
-           margin-right: 0;
-         }
-  
+      margin-right: 0;
+    }
+
     &__posts-left.active {
       margin-right: 3rem;
     }
@@ -189,6 +172,10 @@
     &__posts {
       flex-direction: column;
       height: 1436px;
+    }
+
+    &__post {
+      height: auto;
     }
 
     &__posts-left,
@@ -217,7 +204,7 @@
   .social-section__menu-list {
     flex-wrap: wrap;
   }
-  
+
   .social-section__posts-left.active,
   .social-section__posts-right.active {
     width: 34rem;

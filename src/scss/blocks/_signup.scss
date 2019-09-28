@@ -14,14 +14,7 @@
   background-position-x: center;
   z-index: 1;
 
-  .wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
   h2 {
-    position: relative;
     @include title;
     margin-bottom: 5rem;
 
@@ -94,9 +87,6 @@
 
 .form {
   &__item-wrapper {
-    position: relative;
-    display: flex;
-    flex-direction: column;
     margin-bottom: 4.5rem;
   }
 
@@ -128,7 +118,6 @@
     font-size: 1.6rem;
     font-weight: 700;
     letter-spacing: 0.24rem;
-    text-transform: uppercase;
     transition: transform, top, 0.4s;
   }
 }

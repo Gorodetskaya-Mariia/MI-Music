@@ -1,5 +1,4 @@
 .performances {
-  position: relative;
   margin-top: -24rem;
   padding-top: 34.4rem;
   padding-bottom: 62rem;
@@ -11,16 +10,6 @@
   background-size: cover;
   clip-path: url(#wave);
   z-index: 5;
-
-  .wrapper {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .wrapper_ {
-    display: flex;
-    margin-bottom: 4rem;
-  }
 }
 
 @media screen and (max-width: $desktop) {
@@ -39,8 +28,6 @@
 
   &__item {
     position: relative;
-    display: flex;
-    align-items: center;
     padding-bottom: 4rem;
     margin-bottom: 4rem;
     border-bottom: 1px solid #48547c;
@@ -71,13 +58,10 @@
   }
 
   &__data {
-    display: flex;
     margin-right: 3rem;
   }
 
   &__date {
-    display: flex;
-    flex-direction: column;
     padding: 1.5rem 2.3rem;
     font-family: $font-semibold;
     font-size: 3rem;
@@ -94,7 +78,6 @@
       margin-top: 1.3rem;
       font-size: 1.8rem;
       letter-spacing: 0.036rem;
-      text-transform: uppercase;
     }
 
     &.popular {
@@ -108,8 +91,6 @@
   }
 
   &__description {
-    display: flex;
-    flex-direction: column;
     margin-right: auto;
     font-family: $font-regular;
     font-size: 1.6rem;
@@ -124,8 +105,6 @@
   }
 
   &__location {
-    display: flex;
-    flex-direction: column;
     margin-right: 8.3rem;
     font-family: $font-regular;
     font-size: 1.6rem;
@@ -162,7 +141,6 @@
   &__more {
     font-size: 1.8rem;
     font-family: $font-medium;
-    text-decoration: none;
   }
 }
 
