@@ -4,6 +4,8 @@
     hamburger = document.querySelector(".hamburger"),
     widthHeaderMenu =  document.querySelector(".menu__list--nav").clientWidth,
     navToggleActiveClass = "active";
+    contactUs = document.querySelector(".button-contact");
+    formWrapper = document.querySelector(".form-wrapper");
 
   mainNav.style.right = -(widthHeaderMenu + 130) + "px";
 
@@ -20,13 +22,30 @@
     }
   };
 
+  //emergence of a contact us
+  window.addEventListener("scroll", () => {
+    if (window.pageYOffset >= 1000) {
+      contactUs.style.display = "block";
+    }
+  });
+  window.addEventListener("click", (event) => {
+    if (event.target.classList.contains("button-contact")) {
+      formWrapper.style.right = "0";
+      contactUs.style.display = "none";
+    }
+    if (event.target.classList.contains("popup__close")) {
+      formWrapper.style.right = "-600px";
+      contactUs.style.display = "block";
+    }
+  });
+
   //emergence of an hamburger
   window.addEventListener("scroll", () => {
       let height = document.querySelector("header").offsetHeight;
-    
+
       emergeBurger(height);
   });
-  
+
   //click outside menu
   window.addEventListener("click", (event) => {
     if (menuBtn.classList.contains("is-open")&& !event.target.classList.contains("menu__list--nav-add")) {
@@ -39,7 +58,7 @@
 
   //flipping social blocks
   var socialBtn = document.querySelectorAll(".social-section__menu-button");
-  
+
   for (let i = 0; i < socialBtn.length; i++) {
     let currentBtn = socialBtn[i];
     currentBtn.onclick = function() {
@@ -107,7 +126,7 @@
 
   //flipping news
   let newsBtn = document.querySelectorAll(".news__title");
-  
+
   for (let i = 0; i < newsBtn.length; i++) {
      let currentBtn = newsBtn[i];
      currentBtn.onclick = function() {
@@ -152,13 +171,13 @@
       e.preventDefault();
     }
   }
-  
+
   //will be done after F5
     let height = document.querySelector("header").offsetHeight;
     emergeBurger(height);
-    
+
     function emergeBurger(height) {
-        
+
         if (window.pageYOffset >= height) {
             toggleAppearance("SHOW", menuBtn, navToggleActiveClass);
             toggleAppearance("SHOW", mainNav, navToggleActiveClass);
